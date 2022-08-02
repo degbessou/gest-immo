@@ -16,7 +16,7 @@ public class MainWindow {
 	protected static JButton annuler;
 	protected static JButton creer;
 	protected static JButton modifier;
-	protected static JButton renouveller;
+	protected static JButton renouveler;
 	protected static MenuBail bail;
 	protected static JLabel titre;
 //	protected static CreerLocation creerLocation;

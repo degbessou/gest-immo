@@ -76,7 +76,7 @@ public class MenuPrincipal extends JPanel{
 //			}
 //		});
 //		
-		// logout button action
+		// bouton quitter action
 		MainWindow.quitter = Fonctions.bouttonQuitter(MainWindow.quitter);
 		MainWindow.quitter.addActionListener(new ActionListener() {
 		@Override

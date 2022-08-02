@@ -81,7 +81,7 @@ public class Fonctions {
 	public static JButton bouttonPersonnalisable (JButton btn, String nom) {
 		btn = new JButton("<html><font color = white>"+nom+"</font></html>");
 		btn.setBounds(370, 385, 150, 30);
-		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15)); 
+		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
 		btn.setBackground(new java.awt.Color(39, 170, 243));
 		btn.setBorder(null);
 		return btn;
@@ -89,7 +89,7 @@ public class Fonctions {
 	
 	public static JLabel titre (JLabel titre, String text) {
 		// title
-		titre = new JLabel(text);
+		titre = new JLabel(text, SwingConstants.CENTER);
 		titre.setBounds(152, 64, 416, 26); // dimension
 		titre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 25)); 
 		return titre;

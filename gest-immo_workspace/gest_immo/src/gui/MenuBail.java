@@ -14,124 +14,131 @@ public class MenuBail extends JPanel {
 	public void fenetreMenuBail() {
 		setLayout(null);
 		
-//		// select a car
-//		JButton choixVoiture = new JButton("<html><font color = white>CHOISIR UNE VOITURE</font></html>");
-//		choixVoiture.setBounds(20, 105, 300, 25); // dimension
-//		choixVoiture.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15)); // font n height
-//		choixVoiture.setBackground(new java.awt.Color(39, 170, 243));
-//		choixVoiture.setBorder(null);
-//
-//		// select a client
-//		JLabel client = new JLabel("CLIENT");
-//		client.setBounds(20, 145, 250, 15); // dimension
-//		client.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//
-//		// starting date
-//		JLabel dateDebut = new JLabel("DATE DE DEBUT");
-//		dateDebut.setBounds(20, 185, 250, 15); // dimension
-//		dateDebut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//
-//		// starting hour
-//		JLabel heureDebut = new JLabel("HEURE DE PRISE");
-//		heureDebut.setBounds(20, 225, 250, 15); // dimension
-//		heureDebut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//
-//		// driver card number
-//		JLabel numeroPermis = new JLabel("NUMÉRO DE PERMIS");
-//		numeroPermis.setBounds(20, 265, 250, 15); // dimension
-//		numeroPermis.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//
-//		// kilometer to do
-//		JLabel distance = new JLabel("DISTANCE À PARCOURIR");
-//		distance.setBounds(20, 305, 250, 15); // dimension
-//		distance.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//		
-//		// assurance
-//		JLabel assurance = new JLabel("ASSURANCE");
-//		assurance.setBounds(385, 145, 250, 15); // dimension
-//		assurance.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//		
-//		// ending date
-//		JLabel dateFin = new JLabel("DATE DE FIN");
-//		dateFin.setBounds(385, 185, 250, 15); // dimension
-//		dateFin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//		
-//		// ending hour
-//		JLabel heureFin = new JLabel("HEURE DE RETOUR");
-//		heureFin.setBounds(385, 225, 250, 15); // dimension
-//		heureFin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//		
-//		// driver card expiration date
-//		JLabel dateExpPermis = new JLabel("DATE D'EXPIRATION");
-//		dateExpPermis.setBounds(385, 265, 250, 15); // dimension
-//		dateExpPermis.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//
-//		// extra distance
-//		JLabel distanceSupp = new JLabel("DISTANCE SUPP");
-//		distanceSupp.setBounds(385, 305, 250, 15); // dimension
-//		distanceSupp.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12)); // font n height
-//		
-//		
-//		// clientbox
-//		JComboBox clientBox = new JComboBox();
-//		clientBox.setBounds(225, 140, 130, 20);
-//		clientBox.setBackground(Color.WHITE);
-//		clientBox.setBorder(null);
-//
-//		// starting date field
-//		JTextField dateDebutField = new JTextField(); // check jdatePicker
-//		dateDebutField.setBounds(225, 180, 130, 20);
-//		dateDebutField.setBackground(Color.WHITE);
-//		dateDebutField.setBorder(null);
-//
-//		// starting hour
-//		JComboBox heureDebutBox = new JComboBox();
-//		heureDebutBox.setBounds(225, 220, 130, 20);
-//		heureDebutBox.setBackground(Color.WHITE);
-//		heureDebutBox.setBorder(null);
-//
-//		// driver card number
-//		JTextField numeroPermisField = new JTextField();
-//		numeroPermisField.setBounds(225, 260, 130, 20);
-//		numeroPermisField.setBackground(Color.WHITE);
-//		numeroPermisField.setBorder(null);
-//
-//		// kilometer to do
-//		JTextField distanceField = new JTextField();
-//		distanceField.setEditable(false);
-//		distanceField.setBounds(225, 300, 130, 20);
-//		distanceField.setBackground(Color.WHITE);
-//		distanceField.setBorder(null);
-//
-//		// assurance
-//		JCheckBox assuranceBox = new JCheckBox();
-//		assuranceBox.setBounds(555, 140, 25, 25);
-//		assuranceBox.setBackground(null);
-//		//assuranceBox.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-//		
-//		// ending date field
-//		JTextField dateFinField = new JTextField(); // check jdatePicker
-//		dateFinField.setBounds(555, 180, 130, 20);
-//		dateFinField.setBackground(Color.WHITE);
-//		dateFinField.setBorder(null);
-//		
-//		// starting hour
-//		JComboBox heureFinBox = new JComboBox();
-//		heureFinBox.setBounds(555, 220, 130, 20);
-//		heureFinBox.setBackground(Color.WHITE);
-//		heureFinBox.setBorder(null);
-//		
-//		// driver card expiration date 
-//		JTextField dateExpPermisField = new JTextField();
-//		dateExpPermisField.setBounds(555, 260, 130, 20);
-//		dateExpPermisField.setBackground(Color.WHITE);
-//		dateExpPermisField.setBorder(null);
-//		
-//		// extra kilometer to do
-//		JTextField distanceSuppField = new JTextField();
-//		distanceSuppField.setBounds(555, 300, 130, 20);
-//		distanceSuppField.setBackground(Color.WHITE);
-//		distanceSuppField.setBorder(null);
+
+
+		// numéro unité label
+		JLabel numUniteLbl = new JLabel("N° UNITÉ");
+		numUniteLbl.setBounds(30, 112, 69, 17); // dimension
+		numUniteLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+
+		// type unités label
+		JLabel typeUnitesLbl = new JLabel("TYPE UNITÉS");
+		typeUnitesLbl.setBounds(30, 159, 100, 17); // dimension
+		typeUnitesLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+
+		// date d'entrée
+		JLabel dateEntreeLbl = new JLabel("DATE D'ENTRÉE");
+		dateEntreeLbl.setBounds(30, 206, 107, 17); // dimension
+		dateEntreeLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+
+		// assurance
+		JLabel assuranceLbl = new JLabel("ASSURANCE");
+		assuranceLbl.setBounds(30, 253, 100, 17); // dimension
+		assuranceLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+
+		// remisage
+		JLabel remisageLbl = new JLabel("REMISAGE");
+		remisageLbl.setBounds(30, 300, 82, 17); // dimension
+		remisageLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
+		// sélection
+		JLabel selectLbl = new JLabel("SÉLECTION");
+		selectLbl.setBounds(30, 347, 88, 17); // dimension
+		selectLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
+		// locataire label
+		JLabel locataireLbl = new JLabel("LOCATAIRE");
+		locataireLbl.setBounds(393, 112, 89, 17); // dimension
+		locataireLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
+		// loyer label
+		JLabel loyerLbl = new JLabel("LOYER");
+		loyerLbl.setBounds(393, 159, 54, 17); // dimension
+		loyerLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
+		// date de sortie label
+		JLabel dateSortieLbl = new JLabel("DATE DE SORTIE");
+		dateSortieLbl.setBounds(393, 206, 126, 17); // dimension
+		dateSortieLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
+		// renouvelabilité label
+		JLabel renouvLbl = new JLabel("RENOUVELABLE");
+		renouvLbl.setBounds(393, 253, 126, 17); // dimension
+		renouvLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+
+		// stationnement label
+		JLabel stationnementLbl = new JLabel("STATIONNEMENT");
+		stationnementLbl.setBounds(393, 300, 132, 17); // dimension
+		stationnementLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
+		
+		// numéro unité box
+		JComboBox numUniteBox = new JComboBox();
+		numUniteBox.setBounds(143, 111, 140, 20);
+		numUniteBox.setBackground(Color.WHITE);
+		numUniteBox.setBorder(null);
+
+		// type unités field
+		JTextField typeUnitesField = new JTextField(); // check jdatePicker
+		typeUnitesField.setBounds(143, 158, 140, 20);
+		typeUnitesField.setBackground(Color.WHITE);
+		typeUnitesField.setBorder(null);
+
+		// starting hour
+		JTextField dateEntreeField = new JTextField();
+		dateEntreeField.setBounds(143, 205, 140, 20);
+		dateEntreeField.setBackground(Color.WHITE);
+		dateEntreeField.setBorder(null);
+
+		// assurance
+		JTextField assuranceField = new JTextField();
+		assuranceField.setBounds(143, 252, 140, 20);
+		assuranceField.setBackground(Color.WHITE);
+		assuranceField.setBorder(null);
+
+		// remisage
+		JTextField remisageField = new JTextField();
+		remisageField.setEditable(false);
+		remisageField.setBounds(143, 299, 140, 20);
+		remisageField.setBackground(Color.WHITE);
+		remisageField.setBorder(null);
+		
+		// sélection box
+		JComboBox selectBox = new JComboBox();
+		selectBox.setBounds(143, 346, 140, 20);
+		selectBox.setBackground(Color.WHITE);
+		selectBox.setBorder(null);
+
+		// locataire box
+		JComboBox locataireBox = new JComboBox();
+		locataireBox.setBounds(550, 111, 140, 20);
+		selectBox.setBackground(Color.WHITE);
+		locataireBox.setBackground(null);
+		//assuranceBox.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+		
+		// loyer field
+		JTextField loyerField = new JTextField(); // check jdatePicker
+		loyerField.setBounds(550, 158, 140, 20);
+		loyerField.setBackground(Color.WHITE);
+		loyerField.setBorder(null);
+		
+		// DATE DE SORTIE field
+		JTextField dateSortieField = new JTextField();
+		dateSortieField.setBounds(555, 205, 140, 20);
+		dateSortieField.setBackground(Color.WHITE);
+		dateSortieField.setBorder(null);
+		
+		// renouvelabilité field
+		JTextField renouvField = new JTextField();
+		renouvField.setBounds(550, 252, 140, 20);
+		renouvField.setBackground(Color.WHITE);
+		renouvField.setBorder(null);
+		
+		// stationnement field
+		JTextField stationnementField = new JTextField();
+		stationnementField.setBounds(550, 299, 140, 20);
+		stationnementField.setBackground(Color.WHITE);
+		stationnementField.setBorder(null);
 
 //		// select car button action
 //		choixVoiture.addActionListener(new ActionListener() {
@@ -144,7 +151,7 @@ public class MenuBail extends JPanel {
 //		});
 //		
 //		// save button action
-		JButton btnRenouveller = Fonctions.bouttonPersonnalisable(MainWindow.renouveller, "Enregistrer");
+		JButton btnRenouveler = Fonctions.bouttonPersonnalisable(MainWindow.renouveler, "Renouveler");
 //		MainWindow.enregistrer.addActionListener(new ActionListener() {
 //			@Override
 //			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
@@ -154,56 +161,56 @@ public class MenuBail extends JPanel {
 //			}
 //		});
 //
-//		// cancel button action
-//		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
-//		MainWindow.annuler.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				if (e.getSource() == MainWindow.annuler)
-//					MainWindow.location = new Location();
-//				MainWindow.ouvrePanel(MainWindow.location);
-//			}
-//		});
+		// cancel button action
+		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
+		MainWindow.annuler.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == MainWindow.annuler)
+					MainWindow.menuPrincipal = new MenuPrincipal();
+				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+			}
+		});
 //
-//		// logout button action
-//		MainWindow.quitter = Fonctions.bouttonQuitter(MainWindow.quitter);
-//		MainWindow.quitter.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				if (e.getSource() == MainWindow.quitter)
-//					MainWindow.accueil = new Accueil();
-//				MainWindow.ouvrePanel(MainWindow.accueil);
-//			}
-//		});
-//		
-//		add(distance);
-//		add(numeroPermis);
-//		add(heureDebut);
-//		add(dateDebut);
-//		add(client);
-//		add(clientBox);
-//		add(choixVoiture);
-//		add(distanceField);
-//		add(dateDebutField);
-//		add(heureDebutBox);
-//		add(numeroPermisField);
-//		add(distanceField);
-//		add(distanceSupp);
-//		add(dateExpPermis);
-//		add(heureFin);
-//		add(dateFin);
-//		add(assurance);
-//		add(dateFinField);
-//		add(assuranceBox);
-//		add(dateFinField);
-//		add(heureFinBox);
-//		add(dateExpPermisField);
-//		add(distanceSuppField);
+		// bouton quitter action
+		MainWindow.quitter = Fonctions.bouttonQuitter(MainWindow.quitter);
+		MainWindow.quitter.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == MainWindow.quitter)
+				MainWindow.pageAccueil = new PageAccueil ();
+				MainWindow.ouvrePanel(MainWindow.pageAccueil);
+			}
+		});
+
+		add(numUniteLbl);
+		add(numUniteBox);
+		add(typeUnitesField);
+		add(typeUnitesLbl);
+		add(dateEntreeField);
+		add(dateEntreeLbl);
+		add(assuranceLbl);
+		add(assuranceField);
+		add(remisageLbl);
+		add(remisageField);
+		add(selectLbl);
+		add(selectBox);
+		add(locataireBox);
+		add(locataireLbl);
+		add(loyerField);
+		add(loyerLbl);
+		add(dateSortieField);
+		add(dateSortieLbl);
+		add(renouvField);
+		add(renouvLbl);
+		add(stationnementField);
+		add(stationnementLbl);
 		
-		add(btnRenouveller);
+		add(btnRenouveler);
+		add(Fonctions.bouttonModifier(MainWindow.modifier));
 		add(Fonctions.bouttonCréer(MainWindow.creer));
 		add(Fonctions.bouttonAnnuler(MainWindow.annuler));
-		add(Fonctions.bouttonQuitter(MainWindow.quitter));
+		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "GESTION DE BAUX"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
