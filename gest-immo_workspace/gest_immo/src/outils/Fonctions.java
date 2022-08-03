@@ -70,7 +70,7 @@ public class Fonctions {
 	}
 	
 	public static JButton bouttonCréer (JButton btn) {
-		btn = new JButton("<html><font color = white>Enregistrer</font></html>");
+		btn = new JButton("<html><font color = white>Créer</font></html>");
 		btn.setBounds(30, 385, 150, 30);
 		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
 		btn.setBackground(new java.awt.Color(39, 170, 243));
@@ -88,11 +88,19 @@ public class Fonctions {
 	}
 	
 	public static JLabel titre (JLabel titre, String text) {
-		// title
 		titre = new JLabel(text, SwingConstants.CENTER);
 		titre.setBounds(152, 64, 416, 26); // dimension
 		titre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 25)); 
 		return titre;
+	}
+	
+	public static JButton bouttonListe (JButton btn, String nom) {
+		btn = new JButton("<html><font color = white>"+nom+"</font></html>");
+		btn.setBounds(440, 346, 250, 30);
+		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
+		btn.setBackground(new java.awt.Color(39, 170, 243));
+		btn.setBorder(null);
+		return btn;
 	}
 }
 //	public static JButton boutton (JButton btn) {

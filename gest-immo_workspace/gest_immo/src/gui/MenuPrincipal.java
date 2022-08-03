@@ -46,22 +46,22 @@ public class MenuPrincipal extends JPanel{
 		btnPaiement.setBackground(new java.awt.Color(0, 0, 0));
 		btnPaiement.setBorder(null);
 		
-//		// subscribe button action
-//		btnInscription.addActionListener(new ActionListener() {
-//		@Override
-//		public void actionPerformed(ActionEvent e) {
-//			if (e.getSource() == btnInscription)
-//				MainWindow.inscription = new InscriptionClient ();
-//				MainWindow.ouvrePanel(MainWindow.inscription);		
-//		}
-//	});
-//		
+		// inscription locataire action
+		btnInscription.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == btnInscription)
+				MainWindow.inscription = new MenuInscriptionLocataire ();
+				MainWindow.ouvrePanel(MainWindow.inscription);		
+		}
+	});
+		
 		// bail bouton action
 		btnBail.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == btnBail)
-					MainWindow.bail = new MenuBail();
+					MainWindow.bail = new MenuGestionBail();
 				MainWindow.ouvrePanel(MainWindow.bail);
 			}
 		});

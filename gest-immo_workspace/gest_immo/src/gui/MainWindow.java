@@ -9,15 +9,20 @@ public class MainWindow {
 	protected static JLabel copyright; // signature gest-immo
 	protected static PageAccueil pageAccueil;
 	protected static MenuPrincipal menuPrincipal;
+	protected static MenuGestionBail bail;
+	protected static MenuListeBaux listeBail;
+	protected static MenuListeLocataire listeLocataire;
+	protected static MenuInscriptionLocataire inscription;
 	protected static JPanel dash;
-//	protected static InscriptionClient inscription;
+
 	protected static JButton quitter;
 	protected static JLabel identifiantEmploye;
 	protected static JButton annuler;
 	protected static JButton creer;
 	protected static JButton modifier;
 	protected static JButton renouveler;
-	protected static MenuBail bail;
+	protected static JButton liste;
+
 	protected static JLabel titre;
 //	protected static CreerLocation creerLocation;
 //	protected static ListeLocation listeLocation;

@@ -5,16 +5,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import outils.Fonctions;
 
-public class MenuBail extends JPanel {
+public class MenuGestionBail extends JPanel {
 	
-	public MenuBail() {
+	public MenuGestionBail() {
 		fenetreMenuBail();
 	}
 	
 	public void fenetreMenuBail() {
 		setLayout(null);
-		
-
 
 		// numéro unité label
 		JLabel numUniteLbl = new JLabel("N° UNITÉ");
@@ -84,7 +82,7 @@ public class MenuBail extends JPanel {
 		typeUnitesField.setBackground(Color.WHITE);
 		typeUnitesField.setBorder(null);
 
-		// starting hour
+		// date entrée field
 		JTextField dateEntreeField = new JTextField();
 		dateEntreeField.setBounds(143, 205, 140, 20);
 		dateEntreeField.setBackground(Color.WHITE);
@@ -112,7 +110,7 @@ public class MenuBail extends JPanel {
 		// locataire box
 		JComboBox locataireBox = new JComboBox();
 		locataireBox.setBounds(550, 111, 140, 20);
-		selectBox.setBackground(Color.WHITE);
+		locataireBox.setBackground(Color.WHITE);
 		locataireBox.setBackground(null);
 		//assuranceBox.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 		
@@ -124,7 +122,7 @@ public class MenuBail extends JPanel {
 		
 		// DATE DE SORTIE field
 		JTextField dateSortieField = new JTextField();
-		dateSortieField.setBounds(555, 205, 140, 20);
+		dateSortieField.setBounds(550, 205, 140, 20);
 		dateSortieField.setBackground(Color.WHITE);
 		dateSortieField.setBorder(null);
 		
@@ -139,6 +137,24 @@ public class MenuBail extends JPanel {
 		stationnementField.setBounds(550, 299, 140, 20);
 		stationnementField.setBackground(Color.WHITE);
 		stationnementField.setBorder(null);
+		
+//		// bouton liste des baux
+//		JButton listeBauxBtn = new JButton("<html><font color = white>Liste Des Baux</font></html>");
+//		listeBauxBtn.setBounds(540, 346, 150, 30);
+//		listeBauxBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
+//		listeBauxBtn.setBackground(new java.awt.Color(39, 170, 243));
+//		listeBauxBtn.setBorder(null);
+		
+		// bouton liste des baux
+		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Baux");
+		MainWindow.liste.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == MainWindow.liste )
+					MainWindow.listeBail = new MenuListeBaux();
+					MainWindow.ouvrePanel(MainWindow.listeBail);
+			}
+		});
 
 //		// select car button action
 //		choixVoiture.addActionListener(new ActionListener() {
@@ -150,24 +166,24 @@ public class MenuBail extends JPanel {
 //			}
 //		});
 //		
-//		// save button action
-		JButton btnRenouveler = Fonctions.bouttonPersonnalisable(MainWindow.renouveler, "Renouveler");
-//		MainWindow.enregistrer.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-//				if (e.getSource() == MainWindow.enregistrer)
-//					tarifLocation = new TarifLocation();
-//				MainWindow.ouvrePanel(tarifLocation);
-//			}
-//		});
-//
-		// cancel button action
+//		// bouton renouveler action
+		MainWindow.renouveler = Fonctions.bouttonPersonnalisable(MainWindow.renouveler, "Renouveler");
+		MainWindow.renouveler.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			if (e.getSource() == MainWindow.quitter)
+				MainWindow.menuPrincipal = new MenuPrincipal();
+				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+			}
+		});
+
+		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
 		MainWindow.annuler.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == MainWindow.annuler)
-					MainWindow.menuPrincipal = new MenuPrincipal();
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == MainWindow.annuler)
+				MainWindow.menuPrincipal = new MenuPrincipal();
 				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 			}
 		});
@@ -205,11 +221,12 @@ public class MenuBail extends JPanel {
 		add(renouvLbl);
 		add(stationnementField);
 		add(stationnementLbl);
+		add(MainWindow.liste);
 		
-		add(btnRenouveler);
-		add(Fonctions.bouttonModifier(MainWindow.modifier));
-		add(Fonctions.bouttonCréer(MainWindow.creer));
-		add(Fonctions.bouttonAnnuler(MainWindow.annuler));
+		add(MainWindow.renouveler);
+		add(Fonctions.bouttonModifier(MainWindow.modifier)); // à modifier une fois action du bouton réaliser
+		add(Fonctions.bouttonCréer(MainWindow.creer)); // à modifier une fois action du bouton réaliser
+		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "GESTION DE BAUX"));
 		add(Fonctions.signature(MainWindow.copyright));
