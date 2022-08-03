@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import outils.Fonctions;
+import system.Employe;
 
 public class MenuPrincipal extends JPanel{
 	
@@ -98,13 +99,14 @@ public class MenuPrincipal extends JPanel{
 		});
 		
 		
+		
 		add(btnPaiement);
 		add(btnCatalogue);
 		add(btnBail);
 		add(btnInscription);
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
-		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye));
+		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
 		add(MainWindow.quitter);
 	}
 

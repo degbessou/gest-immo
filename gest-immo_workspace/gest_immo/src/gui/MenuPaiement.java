@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import outils.Fonctions;
+import system.Employe;
 
 public class MenuPaiement extends JPanel {
 	
@@ -116,7 +117,7 @@ public class MenuPaiement extends JPanel {
 		add(Fonctions.titre(MainWindow.titre, "PAIEMENT"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
-		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye));
+		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
 	}
 
 }

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import outils.Fonctions;
+import system.Employe;
 
 public class MenuListeLocataire extends JPanel{
 	
@@ -60,7 +61,7 @@ public class MenuListeLocataire extends JPanel{
 		add(Fonctions.titre(MainWindow.titre, "LISTE DES BAUX"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
-		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye));
+		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
 	}
 
 }

@@ -7,7 +7,7 @@ import outils.Fonctions;
 import system.Employe;
 
 public class MenuConnexion extends JPanel {
-
+	public static JTextField nomUtilisateur = new JTextField();
 	public MenuConnexion () {
 		start();
 	}
@@ -25,7 +25,7 @@ public class MenuConnexion extends JPanel {
 		nomUtilisateurLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15)); // font n height
 		
 		// nom d'utilisateur case
-		JTextField nomUtilisateur = new JTextField();
+		
 		nomUtilisateur.setBounds(210, 107, 300, 35);
 		nomUtilisateur.setBackground(Color.WHITE);
 		nomUtilisateur.setBorder(null);

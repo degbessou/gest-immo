@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import outils.Fonctions;
+import system.Employe;
 
 public class MenuCatalogue extends JPanel{
 	
@@ -195,7 +196,7 @@ public class MenuCatalogue extends JPanel{
 		add(Fonctions.titre(MainWindow.titre, "GESTION DES UNITÉS EN LOCATION"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
-		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye));
+		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
 	}
 
 }

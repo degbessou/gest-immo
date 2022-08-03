@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import outils.Fonctions;
+import system.Employe;
 
 public class MenuGestionBail extends JPanel {
 	
@@ -220,7 +221,7 @@ public class MenuGestionBail extends JPanel {
 		add(Fonctions.titre(MainWindow.titre, "GESTION DE BAUX"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
-		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye));
+		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
 	}
 
 }
