@@ -51,18 +51,6 @@ public class MenuListeBaux extends JPanel{
 				MainWindow.ouvrePanel(MainWindow.bail);
 			}
 		});
-//
-		// bouton quitter action
-		MainWindow.quitter = Fonctions.bouttonQuitter(MainWindow.quitter);
-		MainWindow.quitter.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == MainWindow.quitter)
-				MainWindow.pageAccueil = new PageAccueil ();
-				MainWindow.ouvrePanel(MainWindow.pageAccueil);
-			}
-		});
-		
 		
 		add(affichageBox);
 		add(affichageLbl);

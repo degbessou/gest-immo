@@ -13,6 +13,9 @@ public class MainWindow {
 	protected static MenuListeBaux listeBail;
 	protected static MenuListeLocataire listeLocataire;
 	protected static MenuInscriptionLocataire inscription;
+	protected static MenuCatalogue catalogue;
+	protected static MenuListeUnites listeUnite;
+	protected static MenuPaiement paiement;
 	protected static JPanel dash;
 
 	protected static JButton quitter;
@@ -27,7 +30,7 @@ public class MainWindow {
 //	protected static CreerLocation creerLocation;
 //	protected static ListeLocation listeLocation;
 //	protected static JLabel identifiantClient;
-//	protected static Catalogue catalogue;
+
 //	protected static AjoutVoiture ajoutVoiture;
 	
 	public MainWindow () {

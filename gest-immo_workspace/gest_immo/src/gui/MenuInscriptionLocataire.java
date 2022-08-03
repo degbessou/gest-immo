@@ -138,17 +138,6 @@ public class MenuInscriptionLocataire extends JPanel {
 				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 			}
 		});
-//
-		// bouton quitter action
-		MainWindow.quitter = Fonctions.bouttonQuitter(MainWindow.quitter);
-		MainWindow.quitter.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == MainWindow.quitter)
-				MainWindow.pageAccueil = new PageAccueil ();
-				MainWindow.ouvrePanel(MainWindow.pageAccueil);
-			}
-		});
 
 		add(nomLocataireLbl);
 		add(prenomLocataireLbl);

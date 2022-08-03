@@ -56,6 +56,16 @@ public class MenuPrincipal extends JPanel{
 		}
 	});
 		
+		// paiement bouton action
+		btnPaiement.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == btnPaiement)
+				MainWindow.paiement = new MenuPaiement ();
+				MainWindow.ouvrePanel(MainWindow.paiement);		
+		}
+	});
+		
 		// bail bouton action
 		btnBail.addActionListener(new ActionListener() {
 			@Override
@@ -65,17 +75,17 @@ public class MenuPrincipal extends JPanel{
 				MainWindow.ouvrePanel(MainWindow.bail);
 			}
 		});
-//		
-//		// catalog button action
-//		btnCatalogue.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				if (e.getSource() == btnCatalogue)
-//					MainWindow.catalogue = new Catalogue();
-//				MainWindow.ouvrePanel(MainWindow.catalogue);
-//			}
-//		});
-//		
+		
+		// catalog button action
+		btnCatalogue.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == btnCatalogue)
+				MainWindow.catalogue = new MenuCatalogue();
+				MainWindow.ouvrePanel(MainWindow.catalogue);
+			}
+		});
+		
 		// bouton quitter action
 		MainWindow.quitter = Fonctions.bouttonQuitter(MainWindow.quitter);
 		MainWindow.quitter.addActionListener(new ActionListener() {
