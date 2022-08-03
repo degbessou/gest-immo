@@ -1,0 +1,20 @@
+[
+ {
+   "nom": "Donald",
+   "prenom": "Degbessou",
+   "nomUtilisateur": "Degd01",
+   "motDePasse": "degbDO2022"
+ },
+ {
+   "nom": "Eric",
+   "prenom": "Azamane",
+   "nomUtilisateur": "Azae01",
+   "motDePasse": "azamER2022"
+ },
+ {
+   "nom": "Regis",
+   "prenom": "Miessan",
+   "nomUtilisateur": "Mier01",
+   "motDePasse": "miesRE2022"
+ }
+]

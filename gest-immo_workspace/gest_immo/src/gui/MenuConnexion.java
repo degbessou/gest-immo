@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import outils.Fonctions;
+import system.Employe;
 
 public class MenuConnexion extends JPanel {
 
@@ -53,13 +54,16 @@ public class MenuConnexion extends JPanel {
 		btnConnecter.setBackground(new java.awt.Color(39, 170, 243));
 		btnConnecter.setBorder(null);
 		
+		
 		// login action
 		MainWindow.menuPrincipal = new MenuPrincipal ();
 		btnConnecter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == btnConnecter)
-					MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+				if (e.getSource() == btnConnecter )
+					if (Employe.Connexion(nomUtilisateur, mdp)) {
+						MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+					}					
 			}
 		});
 		

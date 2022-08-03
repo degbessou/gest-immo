@@ -8,7 +8,7 @@ public class MainWindow {
 	protected static MenuConnexion connexion;
 	protected static JLabel copyright; // signature gest-immo
 	protected static PageAccueil pageAccueil;
-	protected static MenuPrincipal menuPrincipal;
+	public static MenuPrincipal menuPrincipal;
 	protected static MenuGestionBail bail;
 	protected static MenuListeBaux listeBail;
 	protected static MenuListeLocataire listeLocataire;
