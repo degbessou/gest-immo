@@ -7,31 +7,42 @@ import org.json.simple.JSONObject;
 import outils.Json;
 
 public class Employe {
-	private static JSONArray listeNomUtilisateur = Json.LireData("D:\\coding\\app\\inf1163 projet\\gest-immo_workspace\\gest_immo\\Target\\employer.json"); // chemin d'accés à modifier selon le répertoire du projet chez l'utilisateur
+	private static JSONArray listeNomUtilisateur = Json.LireData(Json.path("employer.json")); 
 	private static String nom;
 	private String prenom;
 	private String nomUtilisateur;
 	private String motDePasse;
 	
+    /**
+     * méthode qui vérifie les identifiants d'un utilisateur 
+     * en vérifiant le nom d'utilisateur et le mot de passe
+     * et le connecte au logiciel. Affiche un message d'erreur si 
+     * les identifiants ne sont pas reconnus.
+     */
 	public static boolean Connexion (JTextField pseudo, JTextField mdp) {
-		
+		// parcours le fichier json à la recherche des identifiants entrés par l'utilisateur
 		for (int i = 0; i < listeNomUtilisateur.size(); i++) { 
 			JSONObject object = (JSONObject) listeNomUtilisateur.get(i);
-			if (object.get("nomUtilisateur").equals(pseudo.getText()) && object.get("motDePasse").equals(mdp.getText())) {
+			if (object.get("nomUtilisateur").equals(pseudo.getText()) && object.get("motDePasse").equals(mdp.getText())) {   
 				return true;
 			} else if(i == listeNomUtilisateur.size()-1){
-				JOptionPane.showMessageDialog(null, "<html>Échec de l'authentification <br/> Éssayer de nouveau");
+				JOptionPane.showMessageDialog(null, "<html>Échec de l'authentification <br/> Éssayer de nouveau"); 
 			}
 		}
 		return false;
 	}
 	
+    /**
+     * méthode qui retourne le nom de l'utilisateur
+     * connecté au logiciel.
+     */
 	public static String getNomEmployer (JTextField pseudo) {
 		int index = 0;
+		// récupère l'indice des identifiants de l'utilisateur
 		for (int i = 0; i < listeNomUtilisateur.size(); ++i) {
 		    String nomU = (String) ((JSONObject) listeNomUtilisateur.get(i)).get("nomUtilisateur");
 		    if (nomU.equals(pseudo.getText())) {
-		        index = i;
+		        index = i; 
 		        break;
 		    }
 		}

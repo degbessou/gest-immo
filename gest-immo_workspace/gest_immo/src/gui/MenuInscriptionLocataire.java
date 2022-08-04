@@ -12,9 +12,10 @@ import javax.swing.JTextField;
 
 import outils.Fonctions;
 import system.Employe;
+import system.Locataire;
 
 public class MenuInscriptionLocataire extends JPanel {
-	
+	public static JTextField [] infosLocataire;
 	public MenuInscriptionLocataire() {
 		fenetreMenuInscriptionLocataire();
 	}
@@ -41,7 +42,6 @@ public class MenuInscriptionLocataire extends JPanel {
 		JLabel telLbl = new JLabel("TÉLÉPHONE");
 		telLbl.setBounds(30, 253, 100, 17); // dimension
 		telLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-
 		
 		
 		// type locataire label
@@ -59,6 +59,10 @@ public class MenuInscriptionLocataire extends JPanel {
 		coteCreditLbl.setBounds(393, 206, 126, 17); // dimension
 		coteCreditLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
 		
+		// sélection
+		JLabel selectLbl = new JLabel("SÉLECTION");
+		selectLbl.setBounds(30, 347, 88, 17); // dimension
+		selectLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
 		
 		
 		// nom locataire box
@@ -84,7 +88,6 @@ public class MenuInscriptionLocataire extends JPanel {
 		telField.setBounds(143, 252, 140, 20);
 		telField.setBackground(Color.WHITE);
 		telField.setBorder(null);
-
 		
 
 		// type locataire box
@@ -105,6 +108,14 @@ public class MenuInscriptionLocataire extends JPanel {
 		coteCreditField.setBackground(Color.WHITE);
 		coteCreditField.setBorder(null);
 		
+		// sélection box
+		JComboBox selectBox = new JComboBox();
+		selectBox.setBounds(143, 346, 140, 20);
+		selectBox.setBackground(Color.WHITE);
+		selectBox.setBorder(null);
+		
+		
+		infosLocataire = new JTextField [] {nomLocataireField, prenomField, adresseField, telField, typeLocataireField, typeUnitesField, coteCreditField};
 		
 		// bouton liste des Locataires
 		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Locataires");
@@ -117,17 +128,37 @@ public class MenuInscriptionLocataire extends JPanel {
 			}
 		});
 
-//		// select car button action
-//		choixVoiture.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-//				if (e.getSource() == choixVoiture)
-//					MainWindow.catalogue = new Catalogue();
-//				MainWindow.ouvrePanel(MainWindow.catalogue);
-//			}
-//		});
-//		
-
+		// action du bouton créer
+		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
+		MainWindow.creer.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == MainWindow.creer)
+					Locataire.InscrireClient(infosLocataire);
+					Locataire.VérificationInscriptionLocataire(nomLocataireField);
+			}
+		});
+		
+		selectBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == selectBox)
+					//
+					//MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+					Locataire.afficherInfosLocataire(selectBox, infosLocataire);
+			}
+		});
+		
+		// action bouton modifier
+		MainWindow.modifier = Fonctions.bouttonModifier(MainWindow.modifier);
+		MainWindow.modifier.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == MainWindow.modifier)
+				Locataire.modifierInfosLocataire(selectBox, infosLocataire);
+				
+			}
+		});
 
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
@@ -154,11 +185,15 @@ public class MenuInscriptionLocataire extends JPanel {
 		add(adresseField);
 		add(prenomField);
 		add(nomLocataireField);
+		add(selectBox);
+		add(selectLbl);
+		add(Locataire.remplirSelection(selectBox));
 		
 		add(MainWindow.liste);
 		
 		//add(Fonctions.bouttonModifier(MainWindow.modifier)); // à implenter si reste du tempsà modifier une fois action du bouton réaliser
-		add(Fonctions.bouttonCréer(MainWindow.creer)); // à modifier une fois action du bouton réaliser
+		add(MainWindow.modifier); // à modifier une fois action du bouton réaliser
+		add(MainWindow.creer); // à modifier une fois action du bouton réaliser
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "INSCRIPTION DU LOCATAIRE"));

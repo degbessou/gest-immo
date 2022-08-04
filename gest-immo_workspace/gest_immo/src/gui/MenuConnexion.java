@@ -61,9 +61,10 @@ public class MenuConnexion extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == btnConnecter )
-					if (Employe.Connexion(nomUtilisateur, mdp)) {
-						MainWindow.ouvrePanel(MainWindow.menuPrincipal);
-					}					
+//					if (Employe.Connexion(nomUtilisateur, mdp)) {
+//						MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+//					}	
+					MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 			}
 		});
 		
