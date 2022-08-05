@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import outils.Fonctions;
 import system.Employe;
@@ -40,6 +41,10 @@ public class MenuListeLocataire extends JPanel{
 		affichageBox.setBounds(550, 111, 140, 20);
 		affichageBox.setBackground(Color.WHITE);
 		affichageBox.setBackground(null);
+		
+		// tableau d'affichage de la liste des locataires
+		JTable tableListeLocataire = new JTable ();
+		tableListeLocataire.setBounds(30, 147, 660, 223);
 
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
@@ -56,6 +61,7 @@ public class MenuListeLocataire extends JPanel{
 		add(affichageLbl);
 		add(filtreTypeLocataireBox);
 		add(filtreTypeLocataireLbl);
+		add(tableListeLocataire);
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "LISTE DES BAUX"));

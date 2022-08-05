@@ -49,33 +49,34 @@ public class Json {
 		}
 	}
 	
-	public static void RemplacerData (JSONObject object, String chemin) {
+	
+	
+	@SuppressWarnings("unchecked")
+	public static void SupprimerData (JSONObject object, String chemin) {
 		JSONParser parser = new JSONParser();
-	    JSONArray tab = new JSONArray();
-	    
-	    try {
+		JSONArray tab = new JSONArray();
+
+		try {
 			FileReader file = new FileReader(chemin);
 			tab = (JSONArray) parser.parse(file);
-			
-	    } catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	    
-//	    for (int i = 0; i < tab.size(); i++) {
-//			
-//		}
-//	    tab.add(object);
-	    
-	    
-//	    try {
-//	    	FileWriter file = new FileWriter(chemin);
-//	    	file.write(tab.toJSONString());
-//	    	System.out.println(tab.toJSONString());
-//	    	file.close();
-//
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	    }
+
+		tab.remove(object);
+
+		try {
+			FileWriter file = new FileWriter(chemin);
+			file.write(tab.toJSONString());
+			System.out.println(tab.toJSONString());
+			file.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 

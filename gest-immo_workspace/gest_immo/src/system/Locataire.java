@@ -1,6 +1,8 @@
 package system;
 
 import java.awt.Component;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -8,12 +10,12 @@ import javax.swing.JTextField;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import outils.Json;
 
 public class Locataire {
-	private static JSONArray listeLocataire = Json.LireData(Json.path("Locataire2.json")); 
-	private static String [] infosLocataire = {"nom", "prenom", "adresse", "telephone", "typeLocataire", "typeUnites", "coteCredit"};
+	
 	private static String nom;
 	private static String prenom;
 	private static String adresse;
@@ -21,6 +23,9 @@ public class Locataire {
 	private static String typeLocataire;
 	private static String typeUnites;
 	private static String coteCredit;
+	private static String chemin = "locataire22.json";
+	private static JSONArray listeLocataire = Json.LireData(Json.path(getChemin())); 
+	private static String [] infosLocataire = {"nom", "prenom", "adresse", "telephone", "typeLocataire", "typeUnites", "coteCredit"};
 	
     /**
      * méthode qui récupère les informations du locataire 
@@ -42,8 +47,8 @@ public class Locataire {
 		    obj.put(infosLocataire[i], coord[i]);
 		}
 	    
-	    Json.EcrireData(obj, Json.path("Locataire2.json"));
-	    // Éfface les champs pour entrer de nouvelles donées
+	    Json.EcrireData(obj, Json.path(getChemin()));
+	    // Éfface les champs pour entrer de nouvelles données
 //	    for (int i = 0; i < text.length; i++) {
 //			text[i].setText("");
 //		}
@@ -87,9 +92,11 @@ public class Locataire {
      * et remplie les différents champs du menu avec 
      * les données du locataire choisi.
      */
+	@SuppressWarnings("rawtypes")
 	public static void afficherInfosLocataire (Component nom, JTextField [] text) {
+		JSONObject object = new JSONObject();
 		for (int i = 0; i < listeLocataire.size(); i++) { 
-			JSONObject object = (JSONObject) listeLocataire.get(i);
+			object = (JSONObject) listeLocataire.get(i);
 			if (object.get("nom").equals(((JComboBox) nom).getSelectedItem().toString())) { // le locataire sélectionné.
 				for (int j = 0; j < object.size(); j++) { // parcours les informations du locataire
 					text[j].setText(object.get(infosLocataire[j]).toString()); // remplie les champs du menu avec les informations du locataire sélectionné.
@@ -97,33 +104,38 @@ public class Locataire {
 				
 			}
 		}
+		
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void modifierInfosLocataire (Component nom, JTextField [] text) {
-		
-		
-		//String[] coord = new String[7];
+	public static void modifierInfosLocataire(Component nom, JTextField[] text) {
 		JSONObject object = new JSONObject();
-		
-		for (int i = 0; i < listeLocataire.size(); i++) { 
+		for (int i = 0; i < listeLocataire.size(); i++) {
 			object = (JSONObject) listeLocataire.get(i);
 			if (object.get("nom").equals(((JComboBox) nom).getSelectedItem().toString())) { // le locataire sélectionné.
-				for (int j = 0; j < object.size(); j++) { // parcours les informations du locataire
-					if (!(text[j].getText().equals(object.get(infosLocataire[j]).toString()))) {
-						object.replace(infosLocataire[j], text[j].getText());
-					}
-				}
-				
+				System.out.println(object);
+				Json.SupprimerData(object, Json.path(getChemin()));
 			}
 		}
-		Json.EcrireData(object, Json.path("Locataire2.json"));
+		System.out.println(listeLocataire);
+		InscrireClient(text);
+		
 
-	    //Éfface les champs pour entrer de nouvelles donées
-	    for (int i = 0; i < text.length; i++) {
-			text[i].setText("");
-		}
+//		// Éfface les champs pour entrer de nouvelles donées
+//		for (int i = 0; i < text.length; i++) {
+//			text[i].setText("");
+//		}
 	}
+
+	public static String getChemin() {
+		return chemin;
+	}
+
+	public static void setChemin(String chemin) {
+		Locataire.chemin = chemin;
+	}
+	
+	
 	
 	
 

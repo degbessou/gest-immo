@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import outils.Fonctions;
+import outils.Json;
 import system.Employe;
 import system.Locataire;
 
@@ -156,6 +157,7 @@ public class MenuInscriptionLocataire extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
 				Locataire.modifierInfosLocataire(selectBox, infosLocataire);
+				//selectBox.setSelectedIndex(0);
 				
 			}
 		});

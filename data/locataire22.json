@@ -1,0 +1,155 @@
+[
+  {
+    "nom": "",
+    "prenom": "",
+    "adresse": "",
+    "telephone": "",
+    "typeLocataire": "",
+    "typeUnites": "",
+    "coteCredit": ""
+  },
+  {
+    "nom": "Marima",
+    "prenom": "Florent",
+    "adresse": "1416 De la Providence Avenue",
+    "telephone": "(204)728-9805",
+    "typeLocataire": "actuel",
+    "typeUnites": "commercial",
+    "coteCredit": 646
+  },
+  {
+    "nom": "Cochse",
+    "prenom": "Janele",
+    "adresse": "1110 rue des Eglises Est",
+    "telephone": "(519)491-3243",
+    "typeLocataire": "actuel",
+    "typeUnites": "residentiel",
+    "coteCredit": 657
+  },
+  {
+    "nom": "Corinder",
+    "prenom": "Adrian",
+    "adresse": "4869 Richford Road",
+    "telephone": "(450)295-8207",
+    "typeLocataire": "actuel",
+    "typeUnites": "commercial",
+    "coteCredit": 692
+  },
+  {
+    "nom": "Naom",
+    "prenom": "Kynaston",
+    "adresse": "2371 rue Saint-Charles",
+    "telephone": "(705)230-3511",
+    "typeLocataire": "actuel",
+    "typeUnites": "residentiel",
+    "coteCredit": 787
+  },
+  {
+    "nom": "Alexndrea",
+    "prenom": "Jiang",
+    "adresse": "4336 Scarth Street",
+    "telephone": "(807)624-3348",
+    "typeLocataire": "actuel",
+    "typeUnites": "residentiel",
+    "coteCredit": 763
+  },
+  {
+    "nom": "KylaRi",
+    "prenom": "Ritchie",
+    "adresse": "1961 De L'Acadie Boul",
+    "telephone": "(902)657-9489",
+    "typeLocataire": "actuel",
+    "typeUnites": "residentiel",
+    "coteCredit": 682
+  },
+  {
+    "nom": "Thani",
+    "prenom": "Alayna",
+    "adresse": "1320 rue Saint-Antoine",
+    "telephone": "(250)581-7427",
+    "typeLocataire": "actuel",
+    "typeUnites": "commercial",
+    "coteCredit": 715
+  },
+  {
+    "nom": "Ibraima",
+    "prenom": "Corentin",
+    "adresse": "3368 avenue de Port-Royal",
+    "telephone": "(819)893-8449",
+    "typeLocataire": "actuel",
+    "typeUnites": "commercial",
+    "coteCredit": 812
+  },
+  {
+    "nom": "Tochkwu",
+    "prenom": "Uhuru",
+    "adresse": "1465 St Jean Baptiste St",
+    "telephone": "(587)790-2287",
+    "typeLocataire": "potentiel",
+    "typeUnites": "commercial",
+    "coteCredit": 775
+  },
+  {
+    "nom": "Truean",
+    "prenom": "Claude",
+    "adresse": "4756 rue Levy",
+    "telephone": "(778)658-9627",
+    "typeLocataire": "potentiel",
+    "typeUnites": "residentiel",
+    "coteCredit": 758
+  },
+  {
+    "nom": "Toden",
+    "prenom": "Benjamin",
+    "adresse": "228 Ste. Catherine Ouest",
+    "telephone": "(306)860-3804",
+    "typeLocataire": "potentiel",
+    "typeUnites": "residentiel",
+    "coteCredit": 718
+  },
+  {
+    "nom": "Teal",
+    "prenom": "Umar",
+    "adresse": "2048 rue Garneau",
+    "telephone": "(780)669-3279",
+    "typeLocataire": "potentiel",
+    "typeUnites": "residentiel",
+    "coteCredit": 811
+  },
+  {
+    "nom": "Melia",
+    "prenom": "Leanora",
+    "adresse": "1650 Rue De La Gare",
+    "telephone": "(905)999-7353",
+    "typeLocataire": "potentiel",
+    "typeUnites": "residentiel",
+    "coteCredit": 692
+  },
+  {
+    "nom": "RosaLi",
+    "prenom": "Lilibet",
+    "adresse": "1358 Rene-Levesque Blvd",
+    "telephone": "(902)214-6621",
+    "typeLocataire": "potentiel",
+    "typeUnites": "commercial",
+    "coteCredit": 733
+  },
+  {
+    "nom": "Rufu",
+    "prenom": "Ejike",
+    "adresse": "504 chemin Georges",
+    "telephone": "(204)483-7514",
+    "typeLocataire": "potentiel",
+    "typeUnites": "residentiel",
+    "coteCredit": 738
+  },
+  {
+    "typeLocataire": "d",
+    "adresse": "d",
+    "typeUnites": "d",
+    "telephone": "d",
+    "nom": "d",
+    "prenom": "d",
+    "coteCredit": "e"
+  }
+]
