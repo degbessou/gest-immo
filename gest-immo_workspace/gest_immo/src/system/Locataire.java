@@ -3,10 +3,16 @@ package system;
 import java.awt.Component;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.TableModel;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,8 +29,8 @@ public class Locataire {
 	private static String typeLocataire;
 	private static String typeUnites;
 	private static String coteCredit;
-	private static String chemin = "locataire22.json";
-	private static JSONArray listeLocataire = Json.LireData(Json.path(getChemin())); 
+	private static String chemin = "locataire.json";
+	//private static JSONArray listeLocataire = Json.LireData(Json.path(getChemin())); 
 	private static String [] infosLocataire = {"nom", "prenom", "adresse", "telephone", "typeLocataire", "typeUnites", "coteCredit"};
 	
     /**
@@ -49,9 +55,9 @@ public class Locataire {
 	    
 	    Json.EcrireData(obj, Json.path(getChemin()));
 	    // Éfface les champs pour entrer de nouvelles données
-//	    for (int i = 0; i < text.length; i++) {
-//			text[i].setText("");
-//		}
+	    for (int i = 0; i < text.length; i++) {
+			text[i].setText("");
+		}
 	}
 	
     /**
@@ -60,6 +66,7 @@ public class Locataire {
      */
 	public static boolean VérificationInscriptionLocataire (JTextField nom) {
 		// parcours le fichier json à la recherche des identifiants entrés par l'utilisateur
+		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
 		for (int i = 0; i < listeLocataire.size(); i++) { 
 			JSONObject object = (JSONObject) listeLocataire.get(i);
 			if (object.get("nom").equals(nom.getText())) { 
@@ -78,6 +85,7 @@ public class Locataire {
      * et remplie la liste déroulante des noms des locataires 
      */
 	public static Component remplirSelection (JComboBox box) {
+		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
 		for (int i = 0; i < listeLocataire.size(); i++) {
 			JSONObject object = (JSONObject) listeLocataire.get(i);
 			box.addItem(object.get("nom"));
@@ -87,6 +95,18 @@ public class Locataire {
 		
 	}
 	
+	public static Component remplirFiltreAffichage(JComboBox box) {
+		List<Integer> nombreAafficher = new ArrayList<Integer>();
+		for (int i = 0; i < 15; i += 5) {
+			nombreAafficher.add(i);
+		}
+
+		for (int i = 0; i < nombreAafficher.size(); i++) {
+			box.addItem(nombreAafficher.get(i));
+		}
+		return box;
+	}
+	
     /**
      * méthode qui parcours la liste des locataires 
      * et remplie les différents champs du menu avec 
@@ -94,6 +114,7 @@ public class Locataire {
      */
 	@SuppressWarnings("rawtypes")
 	public static void afficherInfosLocataire (Component nom, JTextField [] text) {
+		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
 		JSONObject object = new JSONObject();
 		for (int i = 0; i < listeLocataire.size(); i++) { 
 			object = (JSONObject) listeLocataire.get(i);
@@ -109,6 +130,7 @@ public class Locataire {
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void modifierInfosLocataire(Component nom, JTextField[] text) {
+		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
 		JSONObject object = new JSONObject();
 		for (int i = 0; i < listeLocataire.size(); i++) {
 			object = (JSONObject) listeLocataire.get(i);
@@ -134,6 +156,82 @@ public class Locataire {
 	public static void setChemin(String chemin) {
 		Locataire.chemin = chemin;
 	}
+	
+	public static Component afficherListeLocataire() {
+		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
+		Vector<Vector<String>> dataList = new Vector<>();
+		JSONObject object = new JSONObject();
+		for (int i = 0; i < listeLocataire.size(); i++) {
+
+			object = (JSONObject) listeLocataire.get(i);
+			Vector<String> data = new Vector<>();
+
+			data.add((String) object.get("nom"));
+			data.add((String) object.get("prenom"));
+			data.add((String) object.get("adresse"));
+			data.add((String) object.get("telephone"));
+			data.add((String) object.get("typeLocataire"));
+			data.add((String) object.get("typeUnites"));
+			data.add(String.valueOf(object.get("coteCredit")));
+
+			dataList.add(data);
+
+		}
+
+		Vector<String> nomColonne = new Vector<>();
+		nomColonne.add("nom");
+		nomColonne.add("prenom");
+		nomColonne.add("adresse");
+		nomColonne.add("telephone");
+		nomColonne.add("typeLocataire");
+		nomColonne.add("typeUnites");
+		nomColonne.add("coteCredit");
+
+		JTable table = new JTable(dataList, nomColonne);
+		return table;
+	}
+	
+//	public static Component afficherListeLocataireNbreAffichage(JComboBox affichage) {
+//		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
+//		Vector<Vector<String>> dataList = new Vector<>();
+//		JSONObject object = new JSONObject();
+//		String nbreSelectioner = ((JComboBox) affichage).getSelectedItem().toString();
+//		for (int i = 0; i < listeLocataire.size(); i++) {
+//
+//	        object = (JSONObject) listeLocataire.get(i);
+//	        
+//	        if (i  ==Integer.valueOf(nbreSelectioner)) {
+//	        	for (int j = 0; j <= i; j++) {
+//			        Vector<String> data = new Vector<>();
+//
+//			        data.add((String) object.get("nom"));
+//			        data.add((String) object.get("prenom"));
+//			        data.add((String) object.get("adresse"));
+//			        data.add((String) object.get("telephone"));
+//			        data.add((String) object.get("typeLocataire"));
+//			        data.add((String) object.get("typeUnites"));
+//			        data.add(String.valueOf(object.get("coteCredit")));
+//			        
+//			        dataList.add(data);
+//				}
+//	        }
+//	        
+//	    }
+//		
+//		Vector<String> nomColonne = new Vector<>();
+//		nomColonne.add("nom");
+//		nomColonne.add("prenom");
+//		nomColonne.add("adresse");
+//		nomColonne.add("telephone");
+//		nomColonne.add("typeLocataire");
+//		nomColonne.add("typeUnites");
+//		nomColonne.add("coteCredit");
+//		
+//		JTable table = new JTable(dataList, nomColonne);
+//		return table;
+//		
+//		//return  dataList;
+//	}
 	
 	
 	

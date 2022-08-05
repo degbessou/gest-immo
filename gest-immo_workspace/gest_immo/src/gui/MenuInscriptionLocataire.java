@@ -144,8 +144,6 @@ public class MenuInscriptionLocataire extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
 				if (e.getSource() == selectBox)
-					//
-					//MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 					Locataire.afficherInfosLocataire(selectBox, infosLocataire);
 			}
 		});
@@ -157,7 +155,7 @@ public class MenuInscriptionLocataire extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
 				Locataire.modifierInfosLocataire(selectBox, infosLocataire);
-				//selectBox.setSelectedIndex(0);
+				selectBox.setSelectedIndex(0);
 				
 			}
 		});
@@ -193,9 +191,9 @@ public class MenuInscriptionLocataire extends JPanel {
 		
 		add(MainWindow.liste);
 		
-		//add(Fonctions.bouttonModifier(MainWindow.modifier)); // à implenter si reste du tempsà modifier une fois action du bouton réaliser
-		add(MainWindow.modifier); // à modifier une fois action du bouton réaliser
-		add(MainWindow.creer); // à modifier une fois action du bouton réaliser
+		
+		add(MainWindow.modifier); 
+		add(MainWindow.creer); 
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "INSCRIPTION DU LOCATAIRE"));
