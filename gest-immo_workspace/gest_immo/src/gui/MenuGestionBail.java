@@ -4,9 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import outils.Fonctions;
+import system.Bail;
 import system.Employe;
+import system.Locataire;
 
 public class MenuGestionBail extends JPanel {
+	public static JTextField [] infosBail;
 	
 	public MenuGestionBail() {
 		fenetreMenuBail();
@@ -72,10 +75,10 @@ public class MenuGestionBail extends JPanel {
 		
 		
 		// numéro unité box
-		JComboBox numUniteBox = new JComboBox();
-		numUniteBox.setBounds(143, 111, 140, 20);
-		numUniteBox.setBackground(Color.WHITE);
-		numUniteBox.setBorder(null);
+		JTextField numUniteField = new JTextField();
+		numUniteField.setBounds(143, 111, 140, 20);
+		numUniteField.setBackground(Color.WHITE);
+		numUniteField.setBorder(null);
 
 		// type unités field
 		JTextField typeUnitesField = new JTextField(); // check jdatePicker
@@ -97,7 +100,7 @@ public class MenuGestionBail extends JPanel {
 
 		// remisage
 		JTextField remisageField = new JTextField();
-		remisageField.setEditable(false);
+		//remisageField.setEditable(false);
 		remisageField.setBounds(143, 299, 140, 20);
 		remisageField.setBackground(Color.WHITE);
 		remisageField.setBorder(null);
@@ -109,10 +112,10 @@ public class MenuGestionBail extends JPanel {
 		selectBox.setBorder(null);
 
 		// locataire box
-		JComboBox locataireBox = new JComboBox();
-		locataireBox.setBounds(550, 111, 140, 20);
-		locataireBox.setBackground(Color.WHITE);
-		locataireBox.setBackground(null);
+		JTextField locataireField = new JTextField();
+		locataireField.setBounds(550, 111, 140, 20);
+		locataireField.setBackground(Color.WHITE);
+		locataireField.setBorder(null);
 		//assuranceBox.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 		
 		// loyer field
@@ -146,6 +149,8 @@ public class MenuGestionBail extends JPanel {
 //		listeBauxBtn.setBackground(new java.awt.Color(39, 170, 243));
 //		listeBauxBtn.setBorder(null);
 		
+		infosBail = new JTextField [] {numUniteField, typeUnitesField, dateEntreeField, assuranceField, remisageField, locataireField, loyerField, dateSortieField, renouvField, stationnementField};
+		
 		// bouton liste des baux
 		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Baux");
 		MainWindow.liste.addActionListener(new ActionListener() {
@@ -157,16 +162,18 @@ public class MenuGestionBail extends JPanel {
 			}
 		});
 
-//		// select car button action
-//		choixVoiture.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-//				if (e.getSource() == choixVoiture)
-//					MainWindow.catalogue = new Catalogue();
-//				MainWindow.ouvrePanel(MainWindow.catalogue);
-//			}
-//		});
-//		
+		// action du bouton créer
+		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
+		MainWindow.creer.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == MainWindow.creer)
+					Bail.CreerBail(infosBail);
+					System.out.println(assuranceField.getText());
+					Bail.VérificationCreationBail(assuranceField);
+			}
+		});
+		
 //		// bouton renouveler action
 		MainWindow.renouveler = Fonctions.bouttonPersonnalisable(MainWindow.renouveler, "Renouveler");
 		MainWindow.renouveler.addActionListener(new ActionListener() {
@@ -188,9 +195,31 @@ public class MenuGestionBail extends JPanel {
 				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 			}
 		});
+		
+		// action bouton modifier
+		MainWindow.modifier = Fonctions.bouttonModifier(MainWindow.modifier);
+		MainWindow.modifier.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == MainWindow.modifier)
+				Bail.modifierInfosBail(selectBox, infosBail);
+				selectBox.setSelectedIndex(0);
+				
+			}
+		});
+		
+		selectBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == selectBox)
+					Bail.afficherInfosBail(selectBox, infosBail);
+			}
+		});
+		
+		
 
 		add(numUniteLbl);
-		add(numUniteBox);
+		add(numUniteField);
 		add(typeUnitesField);
 		add(typeUnitesLbl);
 		add(dateEntreeField);
@@ -201,7 +230,7 @@ public class MenuGestionBail extends JPanel {
 		add(remisageField);
 		add(selectLbl);
 		add(selectBox);
-		add(locataireBox);
+		add(locataireField);
 		add(locataireLbl);
 		add(loyerField);
 		add(loyerLbl);
@@ -212,10 +241,11 @@ public class MenuGestionBail extends JPanel {
 		add(stationnementField);
 		add(stationnementLbl);
 		add(MainWindow.liste);
+		add(Bail.remplirSelection(selectBox));
 		
 		add(MainWindow.renouveler);
-		add(Fonctions.bouttonModifier(MainWindow.modifier)); // à modifier une fois action du bouton réaliser
-		add(Fonctions.bouttonCréer(MainWindow.creer)); // à modifier une fois action du bouton réaliser
+		add(MainWindow.modifier); // à modifier une fois action du bouton réaliser
+		add(MainWindow.creer); // à modifier une fois action du bouton réaliser
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "GESTION DE BAUX"));

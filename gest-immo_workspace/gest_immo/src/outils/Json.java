@@ -1,6 +1,8 @@
 package outils;
 
 import java.io.*;
+import java.util.Random;
+
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 
@@ -41,7 +43,6 @@ public class Json {
 		try {
 			FileWriter file = new FileWriter(chemin);
 			file.write(tab.toJSONString());
-			System.out.println(tab.toJSONString());
 			file.close();
 
 		} catch (Exception e) {
@@ -69,7 +70,7 @@ public class Json {
 		try {
 			FileWriter file = new FileWriter(chemin);
 			file.write(tab.toJSONString());
-			System.out.println(tab.toJSONString());
+			//System.out.println(tab.toJSONString());
 			file.close();
 
 		} catch (Exception e) {
@@ -77,6 +78,14 @@ public class Json {
 		}
 		
 		
+	}
+	
+	public static String NumeroId () {
+		Random rand = new Random();
+
+		// Renvoi un nombre entre [10 - 99].
+		int n = rand.nextInt(100-10)+10;
+		return String.valueOf(n);
 	}
 	
 

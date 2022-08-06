@@ -30,7 +30,6 @@ public class Locataire {
 	private static String typeUnites;
 	private static String coteCredit;
 	private static String chemin = "locataire.json";
-	//private static JSONArray listeLocataire = Json.LireData(Json.path(getChemin())); 
 	private static String [] infosLocataire = {"nom", "prenom", "adresse", "telephone", "typeLocataire", "typeUnites", "coteCredit"};
 	
     /**
@@ -69,8 +68,9 @@ public class Locataire {
 		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
 		for (int i = 0; i < listeLocataire.size(); i++) { 
 			JSONObject object = (JSONObject) listeLocataire.get(i);
+			
 			if (object.get("nom").equals(nom.getText())) { 
-				JOptionPane.showMessageDialog(null, "<html>Le Locataire "+nom.getText()+" a été bien enregistré"); // popup de succès si le nom entré est trouvé dans le json à la fin de l'itération
+				JOptionPane.showMessageDialog(null, "<html>Le locataire "+nom.getText()+" a été bien enregistré"); // popup de succès si le nom entré est trouvé dans le json à la fin de l'itération
 				return true;
 				
 			} else if(i == listeLocataire.size()-1){
@@ -90,9 +90,7 @@ public class Locataire {
 			JSONObject object = (JSONObject) listeLocataire.get(i);
 			box.addItem(object.get("nom"));
 		}
-		return box;
-		
-		
+		return box;	
 	}
 	
 	public static Component remplirFiltreAffichage(JComboBox box) {
@@ -135,7 +133,6 @@ public class Locataire {
 		for (int i = 0; i < listeLocataire.size(); i++) {
 			object = (JSONObject) listeLocataire.get(i);
 			if (object.get("nom").equals(((JComboBox) nom).getSelectedItem().toString())) { // le locataire sélectionné.
-				System.out.println(object);
 				Json.SupprimerData(object, Json.path(getChemin()));
 			}
 		}

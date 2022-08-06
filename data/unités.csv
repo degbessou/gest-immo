@@ -1,0 +1,21 @@
+idUnites;type;adresse;anneeConstruction;aire;nombrePieces;condition;disponibiliter;proprietaire;loyerMensuel;prixRemisageMensuel;prixStationnementMensuel
+101;residentiel;96 W. Buckingham Ave.;2010;650;6;louable;occuper;Bentley Cain;2700;75;100
+102;residentiel;385 Brewery Lane;2013;620;6;louable;libre;Bentley Cain;2700;75;100
+103;residentiel;9018 Fifth Ave.;1998;575;4;louable;libre;Franklin Fernandez;1800;75;100
+104;residentiel;95 Hawthorne St.;2006;350;5;louable;occuper;Kenya Schmitt;2200;75;100
+105;residentiel;7456 S. Illinois St.;2014;635;6;louable;occuper;Marlie Henderson;2700;75;100
+106;residentiel;23 Hilldale St.;1996;600;5;louable;occuper;Marlie Henderson;2200;75;100
+107;residentiel;369 Old Orange Ave.;2010;260;2;louable;libre;Janelle Montoya;1200;75;100
+108;residentiel;560 Glen Creek Street;2011;580;4;louable;libre;Jimmy Shepard;1800;75;100
+109;residentiel;9591 Fairway Dr.;2014;510;3;louable;occuper;Jimmy Shepard;1500;75;100
+110;residentiel;7166 Young Avenue;1997;410;3;louable;reserver;Marlie Henderson;1500;75;100
+111;residentiel;22 Leatherwood Avenue;2006;450;3;louable;libre;Janelle Montoya;1500;75;100
+112;residentiel;3 Livingston Dr.;1995;670;6;louable;libre;Janelle Montoya;2700;75;100
+113;residentiel;8868 Myrtle St.;2010;260;1;pas louable;libre;Bentley Cain;900;75;100
+201;commercial;962 South Bay Street;2006;680;3;louable;occuper;Franklin Fernandez;1500;120;110
+202;commercial;7549 Tarkiln Hill Ave.;2001;560;2;louable;libre;Alonzo Gutierrez;1200;120;110
+203;commercial;7573 South Manhattan St.;2016;670;1;louable;occuper;Isiah Kirk;900;120;110
+204;commercial;9082 West Homewood Ave.;1994;630;2;louable;reserver;Isiah Kirk;1200;120;110
+205;commercial;6 Beech St.;2013;267;1;pas louable;libre;Isiah Kirk;900;120;110
+206;commercial;9 Forest Street;2018;680;3;pas louable;libre;Marlie Henderson;1500;120;110
+207;commercial;931 West Argyle Street;1998;380;2;louable;occuper;Kenya Schmitt;1200;120;110
