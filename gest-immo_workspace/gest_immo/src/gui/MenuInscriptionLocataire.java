@@ -118,14 +118,14 @@ public class MenuInscriptionLocataire extends JPanel {
 		
 		infosLocataire = new JTextField [] {nomLocataireField, prenomField, adresseField, telField, typeLocataireField, typeUnitesField, coteCreditField};
 		
-		// bouton liste des Locataires
+		// action du bouton liste des Locataires
 		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Locataires");
 		MainWindow.liste.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == MainWindow.liste )
 					MainWindow.listeLocataire = new MenuListeLocataire();
-					MainWindow.ouvrePanel(MainWindow.listeLocataire);
+					MainWindow.ouvrePanel(MainWindow.listeLocataire); // ouvre le menu liste des locataires
 			}
 		});
 
@@ -135,16 +135,16 @@ public class MenuInscriptionLocataire extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
 				if (e.getSource() == MainWindow.creer)
-					Locataire.InscrireClient(infosLocataire);
-					Locataire.VérificationInscriptionLocataire(nomLocataireField);
+					Locataire.InscrireClient(infosLocataire); // ajout un client dans le fichier json
 			}
 		});
 		
+		// action de la selection d'un élément du box
 		selectBox.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == selectBox)
-					Locataire.afficherInfosLocataire(selectBox, infosLocataire);
+					Locataire.afficherInfosLocataire(selectBox, infosLocataire); // affiche les informations de l'élément sélectionné
 			}
 		});
 		
@@ -154,8 +154,8 @@ public class MenuInscriptionLocataire extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
-				Locataire.modifierInfosLocataire(selectBox, infosLocataire);
-				selectBox.setSelectedIndex(0);
+				Locataire.modifierInfosLocataire(selectBox, infosLocataire); // modifie les données de l'élément sélectionné
+				selectBox.setSelectedIndex(0); // ramène la liste déroulante à l'élément vide
 				
 			}
 		});
@@ -167,10 +167,11 @@ public class MenuInscriptionLocataire extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+				MainWindow.ouvrePanel(MainWindow.menuPrincipal); // retour au menu principal
 			}
 		});
-
+		
+		// ajout des différents composants du menu
 		add(nomLocataireLbl);
 		add(prenomLocataireLbl);
 		add(adresseLbl);
@@ -187,11 +188,9 @@ public class MenuInscriptionLocataire extends JPanel {
 		add(nomLocataireField);
 		add(selectBox);
 		add(selectLbl);
+		
 		add(Locataire.remplirSelection(selectBox));
-		
 		add(MainWindow.liste);
-		
-		
 		add(MainWindow.modifier); 
 		add(MainWindow.creer); 
 		add(MainWindow.annuler);

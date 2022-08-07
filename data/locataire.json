@@ -15,7 +15,7 @@
     "telephone": "(204)728-9805",
     "typeLocataire": "actuel",
     "typeUnites": "commercial",
-    "coteCredit": 646
+    "coteCredit": "646"
   },
   {
     "nom": "Cochse",
@@ -24,7 +24,7 @@
     "telephone": "(519)491-3243",
     "typeLocataire": "actuel",
     "typeUnites": "residentiel",
-    "coteCredit": 657
+    "coteCredit": "657"
   },
   {
     "nom": "Corinder",
@@ -33,7 +33,7 @@
     "telephone": "(450)295-8207",
     "typeLocataire": "actuel",
     "typeUnites": "commercial",
-    "coteCredit": 692
+    "coteCredit": "692"
   },
   {
     "nom": "Naom",
@@ -42,7 +42,7 @@
     "telephone": "(705)230-3511",
     "typeLocataire": "actuel",
     "typeUnites": "residentiel",
-    "coteCredit": 787
+    "coteCredit": "787"
   },
   {
     "nom": "Alexndrea",
@@ -51,7 +51,7 @@
     "telephone": "(807)624-3348",
     "typeLocataire": "actuel",
     "typeUnites": "residentiel",
-    "coteCredit": 763
+    "coteCredit": "763"
   },
   {
     "nom": "KylaRi",
@@ -60,7 +60,7 @@
     "telephone": "(902)657-9489",
     "typeLocataire": "actuel",
     "typeUnites": "residentiel",
-    "coteCredit": 682
+    "coteCredit": "682"
   },
   {
     "nom": "Thani",
@@ -69,7 +69,7 @@
     "telephone": "(250)581-7427",
     "typeLocataire": "actuel",
     "typeUnites": "commercial",
-    "coteCredit": 715
+    "coteCredit": "715"
   },
   {
     "nom": "Ibraima",
@@ -78,7 +78,7 @@
     "telephone": "(819)893-8449",
     "typeLocataire": "actuel",
     "typeUnites": "commercial",
-    "coteCredit": 812
+    "coteCredit": "812"
   },
   {
     "nom": "Tochkwu",
@@ -87,7 +87,7 @@
     "telephone": "(587)790-2287",
     "typeLocataire": "potentiel",
     "typeUnites": "commercial",
-    "coteCredit": 775
+    "coteCredit": "775"
   },
   {
     "nom": "Truean",
@@ -96,7 +96,7 @@
     "telephone": "(778)658-9627",
     "typeLocataire": "potentiel",
     "typeUnites": "residentiel",
-    "coteCredit": 758
+    "coteCredit": "758"
   },
   {
     "nom": "Toden",
@@ -105,7 +105,7 @@
     "telephone": "(306)860-3804",
     "typeLocataire": "potentiel",
     "typeUnites": "residentiel",
-    "coteCredit": 718
+    "coteCredit": "718"
   },
   {
     "nom": "Teal",
@@ -114,7 +114,7 @@
     "telephone": "(780)669-3279",
     "typeLocataire": "potentiel",
     "typeUnites": "residentiel",
-    "coteCredit": 811
+    "coteCredit": "811"
   },
   {
     "nom": "Melia",
@@ -123,7 +123,7 @@
     "telephone": "(905)999-7353",
     "typeLocataire": "potentiel",
     "typeUnites": "residentiel",
-    "coteCredit": 692
+    "coteCredit": "692"
   },
   {
     "nom": "RosaLi",
@@ -132,7 +132,7 @@
     "telephone": "(902)214-6621",
     "typeLocataire": "potentiel",
     "typeUnites": "commercial",
-    "coteCredit": 733
+    "coteCredit": "733"
   },
   {
     "nom": "Rufu",
@@ -141,15 +141,6 @@
     "telephone": "(204)483-7514",
     "typeLocataire": "potentiel",
     "typeUnites": "residentiel",
-    "coteCredit": 738
-  },
-  {
-    "typeLocataire": "d",
-    "adresse": "d",
-    "typeUnites": "d",
-    "telephone": "d",
-    "nom": "d",
-    "prenom": "d",
-    "coteCredit": "e"
+    "coteCredit": "738"
   }
 ]

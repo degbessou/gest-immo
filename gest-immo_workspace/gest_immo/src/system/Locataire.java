@@ -42,45 +42,38 @@ public class Locataire {
 		JSONObject obj = new JSONObject();
 	    for (int i = 0; i < text.length; i++) {
 	    	if (text[i].getText().equals("")) {
-	    		JOptionPane.showMessageDialog(null, "<html>Entrez toutes les informations du locataire"); 
-	    		break;
+	    		JOptionPane.showMessageDialog(null, "<html>Entrez toutes les informations du locataire"); // message d'erreur si tous les champs ne sont pas remplis
+	    		break; // on sort de la boucle
+	    	} else {
+	    		coord[i] = text[i].getText(); // on recueille les données rentrées
 	    	}
-	        coord[i] = text[i].getText();
 	    }
 	    
-	    for (int i = 0; i < coord.length; i++) {
-		    obj.put(infosLocataire[i], coord[i]);
-		}
 	    
-	    Json.EcrireData(obj, Json.path(getChemin()));
-	    // Éfface les champs pour entrer de nouvelles données
-	    for (int i = 0; i < text.length; i++) {
-			text[i].setText("");
-		}
-	}
-	
-    /**
-     * méthode qui vérifie que les informations du locataire 
-     * ont été bien sauvegardées dans le fichier json.
-     */
-	public static boolean VérificationInscriptionLocataire (JTextField nom) {
-		// parcours le fichier json à la recherche des identifiants entrés par l'utilisateur
-		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
-		for (int i = 0; i < listeLocataire.size(); i++) { 
-			JSONObject object = (JSONObject) listeLocataire.get(i);
-			
-			if (object.get("nom").equals(nom.getText())) { 
-				JOptionPane.showMessageDialog(null, "<html>Le locataire "+nom.getText()+" a été bien enregistré"); // popup de succès si le nom entré est trouvé dans le json à la fin de l'itération
-				return true;
-				
-			} else if(i == listeLocataire.size()-1){
-				JOptionPane.showMessageDialog(null, "<html>Échec de l'inscription du locataire <br/> Éssayer de nouveau"); // popup de d'échec si le nom entré n'est pas trouvé dans le json à la fin de l'itération
+	    for (int j = 0; j < coord.length; j++) { // parcourt les données recueillies 
+	    	if (coord [j] == "" || coord [j] == null) { 
+				break; // la boucle s'arrêtte si des données vides sont rencontrées
+			} else {
+				obj.put(infosLocataire[j], coord[j]); // sinon on sauvegarge ca dans un objet Json
 			}
 		}
-		return false;
+	    
+	    if (!obj.isEmpty()) {
+	    	Json.EcrireData(obj, Json.path(getChemin())); // si l'objet n'est pas vide on l'enregistre dans le fichier json
+	    	JOptionPane.showMessageDialog(null, "<html>Le bail de "+obj.get("idAssurance")+" a été bien enregistré"); // message d'enregistrement
+		} else {
+			Json.SupprimerData(obj, Json.path(getChemin()));	// on supprime l'objet json
+		}
+	    
+	 // Éfface les champs pour entrer de nouvelles données
+	    for (int i = 0; i < text.length; i++) {
+			text[i].setText(""); 
+		}
 	}
 	
-    /**
+ 
+
+	/**
      * méthode qui parcours la liste des locataire 
      * et remplie la liste déroulante des noms des locataires 
      */
@@ -88,22 +81,11 @@ public class Locataire {
 		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
 		for (int i = 0; i < listeLocataire.size(); i++) {
 			JSONObject object = (JSONObject) listeLocataire.get(i);
-			box.addItem(object.get("nom"));
+			box.addItem(object.get("nom")); // ajoute la valeur de l'attribut nom à la liste déroulante
 		}
 		return box;	
 	}
 	
-	public static Component remplirFiltreAffichage(JComboBox box) {
-		List<Integer> nombreAafficher = new ArrayList<Integer>();
-		for (int i = 0; i < 15; i += 5) {
-			nombreAafficher.add(i);
-		}
-
-		for (int i = 0; i < nombreAafficher.size(); i++) {
-			box.addItem(nombreAafficher.get(i));
-		}
-		return box;
-	}
 	
     /**
      * méthode qui parcours la liste des locataires 
@@ -126,6 +108,11 @@ public class Locataire {
 		
 	}
 	
+    /**
+     * méthode qui parcours la liste des locataires 
+     * et modifie les données du locataire choisi 
+     * avec les nouvelles valeurs saisies
+     */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void modifierInfosLocataire(Component nom, JTextField[] text) {
 		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
@@ -133,17 +120,11 @@ public class Locataire {
 		for (int i = 0; i < listeLocataire.size(); i++) {
 			object = (JSONObject) listeLocataire.get(i);
 			if (object.get("nom").equals(((JComboBox) nom).getSelectedItem().toString())) { // le locataire sélectionné.
-				Json.SupprimerData(object, Json.path(getChemin()));
+				Json.SupprimerData(object, Json.path(getChemin())); // supprime les données du locataire.
 			}
 		}
-		System.out.println(listeLocataire);
-		InscrireClient(text);
-		
-
-//		// Éfface les champs pour entrer de nouvelles donées
-//		for (int i = 0; i < text.length; i++) {
-//			text[i].setText("");
-//		}
+		//System.out.println(listeLocataire);
+		InscrireClient(text); //recrée le locataire choisi avec les nouvelle données saisies 
 	}
 
 	public static String getChemin() {
@@ -154,15 +135,20 @@ public class Locataire {
 		Locataire.chemin = chemin;
 	}
 	
+    /**
+     * méthode qui affiche la liste des locataires 
+     * dans une table
+     */
 	public static Component afficherListeLocataire() {
 		JSONArray listeLocataire = Json.LireData(Json.path(getChemin()));
-		Vector<Vector<String>> dataList = new Vector<>();
+		Vector<Vector<String>> dataList = new Vector<>(); 
 		JSONObject object = new JSONObject();
 		for (int i = 0; i < listeLocataire.size(); i++) {
 
 			object = (JSONObject) listeLocataire.get(i);
-			Vector<String> data = new Vector<>();
-
+			Vector<String> data = new Vector<>(); // liste qui définie une ligne du tableau ie les données d'un locataire
+			
+			// aout de chaque données du locataire 
 			data.add((String) object.get("nom"));
 			data.add((String) object.get("prenom"));
 			data.add((String) object.get("adresse"));
@@ -171,20 +157,20 @@ public class Locataire {
 			data.add((String) object.get("typeUnites"));
 			data.add(String.valueOf(object.get("coteCredit")));
 
-			dataList.add(data);
+			dataList.add(data); // ajout des lignes à la liste qui définie le tableau
 
 		}
 
-		Vector<String> nomColonne = new Vector<>();
-		nomColonne.add("nom");
-		nomColonne.add("prenom");
-		nomColonne.add("adresse");
-		nomColonne.add("telephone");
-		nomColonne.add("typeLocataire");
-		nomColonne.add("typeUnites");
-		nomColonne.add("coteCredit");
+		Vector<String> nomColonne = new Vector<>(); // liste qui contient le nom de chaque colonne
+		nomColonne.add("Nom");
+		nomColonne.add("Prénom");
+		nomColonne.add("Adresse");
+		nomColonne.add("téléphone");
+		nomColonne.add("Type de locataire");
+		nomColonne.add("Type d'unités");
+		nomColonne.add("Cote de crédit");
 
-		JTable table = new JTable(dataList, nomColonne);
+		JTable table = new JTable(dataList, nomColonne); // table à afficher
 		return table;
 	}
 	
@@ -229,6 +215,70 @@ public class Locataire {
 //		
 //		//return  dataList;
 //	}
+	
+	   public static String getNom() {
+			return nom;
+		}
+
+		public static void setNom(String nom) {
+			Locataire.nom = nom;
+		}
+
+		public static String getPrenom() {
+			return prenom;
+		}
+
+		public static void setPrenom(String prenom) {
+			Locataire.prenom = prenom;
+		}
+
+		public static String getAdresse() {
+			return adresse;
+		}
+
+		public static void setAdresse(String adresse) {
+			Locataire.adresse = adresse;
+		}
+
+		public static String getTelephone() {
+			return telephone;
+		}
+
+		public static void setTelephone(String telephone) {
+			Locataire.telephone = telephone;
+		}
+
+		public static String getTypeLocataire() {
+			return typeLocataire;
+		}
+
+		public static void setTypeLocataire(String typeLocataire) {
+			Locataire.typeLocataire = typeLocataire;
+		}
+
+		public static String getTypeUnites() {
+			return typeUnites;
+		}
+
+		public static void setTypeUnites(String typeUnites) {
+			Locataire.typeUnites = typeUnites;
+		}
+
+		public static String getCoteCredit() {
+			return coteCredit;
+		}
+
+		public static void setCoteCredit(String coteCredit) {
+			Locataire.coteCredit = coteCredit;
+		}
+
+		public static String[] getInfosLocataire() {
+			return infosLocataire;
+		}
+
+		public static void setInfosLocataire(String[] infosLocataire) {
+			Locataire.infosLocataire = infosLocataire;
+		}
 	
 	
 	

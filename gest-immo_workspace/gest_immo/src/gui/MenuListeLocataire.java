@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import outils.Fonctions;
+import outils.Json;
 import system.Employe;
 import system.Locataire;
 
@@ -45,7 +46,7 @@ public class MenuListeLocataire extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == MainWindow.annuler)
 					MainWindow.inscription = new MenuInscriptionLocataire();
-				MainWindow.ouvrePanel(MainWindow.inscription);
+					MainWindow.ouvrePanel(MainWindow.inscription);
 			}
 		});
 		
@@ -63,7 +64,7 @@ public class MenuListeLocataire extends JPanel{
 
 		add(affichageBox);
 		add(affichageLbl);
-		add(Locataire.remplirFiltreAffichage(affichageBox));
+		add(Json.remplirFiltreAffichage(affichageBox));
 		add(tableListeLocataire);
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);

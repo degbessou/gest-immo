@@ -11,10 +11,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import outils.Fonctions;
+import system.Bail;
 import system.Employe;
+import system.Unites;
 
 public class MenuCatalogue extends JPanel{
 	
+	private JTextField[] infosUnites;
+
 	public MenuCatalogue() {
 		fenetreMenuCatalogue();
 	}
@@ -74,10 +78,10 @@ public class MenuCatalogue extends JPanel{
 		
 		
 		// numéro unité box
-		JTextField numUniteBox = new JTextField();
-		numUniteBox.setBounds(143, 111, 140, 20);
-		numUniteBox.setBackground(Color.WHITE);
-		numUniteBox.setBorder(null);
+		JTextField numUniteField = new JTextField();
+		numUniteField.setBounds(143, 111, 140, 20);
+		numUniteField.setBackground(Color.WHITE);
+		numUniteField.setBorder(null);
 
 		// type unités field
 		JTextField typeUnitesField = new JTextField(); 
@@ -132,6 +136,8 @@ public class MenuCatalogue extends JPanel{
 		proprioField.setBounds(550, 252, 140, 20);
 		proprioField.setBackground(Color.WHITE);
 		proprioField.setBorder(null);
+				
+		infosUnites = new JTextField [] {numUniteField, typeUnitesField, adresseField, anneeField, superficieField, nbrePieceField, conditionField, dispoField, proprioField};
 		
 		// bouton liste des baux
 		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Unités");
@@ -143,18 +149,29 @@ public class MenuCatalogue extends JPanel{
 					MainWindow.ouvrePanel(MainWindow.listeUnite);
 			}
 		});
-
-//		// select car button action
-//		choixVoiture.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-//				if (e.getSource() == choixVoiture)
-//					MainWindow.catalogue = new Catalogue();
-//				MainWindow.ouvrePanel(MainWindow.catalogue);
-//			}
-//		});
-//		
-
+		
+		// action du bouton créer
+		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
+		MainWindow.creer.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == MainWindow.creer)
+					Unites.CreerUnites(infosUnites);
+					
+			}
+		});
+		
+		// action bouton modifier
+		MainWindow.modifier = Fonctions.bouttonModifier(MainWindow.modifier);
+		MainWindow.modifier.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == MainWindow.modifier)
+				Unites.ModifierInfosUnites(selectBox, infosUnites);
+				selectBox.setSelectedIndex(0);
+				
+			}
+		});
 
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
@@ -166,9 +183,17 @@ public class MenuCatalogue extends JPanel{
 				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 			}
 		});
+		
+		selectBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { 
+				if (e.getSource() == selectBox)
+					Unites.AfficherInfosUnites(selectBox, infosUnites);
+			}
+		});
 
 		add(numUniteLbl);
-		add(numUniteBox);
+		add(numUniteField);
 		add(typeUnitesField);
 		add(typeUnitesLbl);
 		add(adresseField);
@@ -187,13 +212,15 @@ public class MenuCatalogue extends JPanel{
 		add(proprioLbl);
 		add(selectLbl);
 		add(selectBox);
-
+		
+		
+		add(Unites.RemplirSelection(selectBox));
 		add(MainWindow.liste);
-		add(Fonctions.bouttonModifier(MainWindow.modifier)); // à modifier une fois action du bouton réaliser
-		add(Fonctions.bouttonCréer(MainWindow.creer)); // à modifier une fois action du bouton réaliser
+		add(MainWindow.modifier);
+		add(MainWindow.creer); 
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
-		add(Fonctions.titre(MainWindow.titre, "GESTION DES UNITÉS EN LOCATION"));
+		add(Fonctions.titre(MainWindow.titre, "GESTION DES UNITÉS"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
 		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));

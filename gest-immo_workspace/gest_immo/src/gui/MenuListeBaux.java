@@ -8,10 +8,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import outils.Fonctions;
+import outils.Json;
+import system.Bail;
 import system.Employe;
+import system.Locataire;
 
 public class MenuListeBaux extends JPanel{
 	
+	private JScrollPane tableListeBail;
+
 	public MenuListeBaux() {
 		fenetreMenuListeBaux();
 	}
@@ -42,6 +47,10 @@ public class MenuListeBaux extends JPanel{
 		affichageBox.setBackground(Color.WHITE);
 		affichageBox.setBackground(null);
 		
+		// tableau d'affichage de la liste des locataires
+		tableListeBail = new JScrollPane(Bail.afficherListeBail());
+		tableListeBail.setBounds(30, 145, 680, 227);
+		
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
 		MainWindow.annuler.addActionListener(new ActionListener() {
@@ -53,6 +62,8 @@ public class MenuListeBaux extends JPanel{
 			}
 		});
 		
+		add(Json.remplirFiltreAffichage(affichageBox));
+		add(tableListeBail);
 		add(affichageBox);
 		add(affichageLbl);
 		add(MainWindow.annuler);

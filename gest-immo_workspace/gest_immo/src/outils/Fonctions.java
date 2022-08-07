@@ -53,7 +53,7 @@ public class Fonctions {
 	
 	public static JButton bouttonAnnuler (JButton btn) {
 		btn = new JButton("<html><font color = white>Annuler</font></html>");
-		btn.setBounds(540, 385, 150, 30);
+		btn.setBounds(540, 400, 150, 30);
 		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
 		btn.setBackground(new java.awt.Color(39, 170, 243));
 		btn.setBorder(null);
@@ -62,7 +62,7 @@ public class Fonctions {
 	
 	public static JButton bouttonModifier (JButton btn) {
 		btn = new JButton("<html><font color = white>Modifier</font></html>");
-		btn.setBounds(200, 385, 150, 30);
+		btn.setBounds(200, 400, 150, 30);
 		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
 		btn.setBackground(new java.awt.Color(39, 170, 243));
 		btn.setBorder(null);
@@ -71,7 +71,7 @@ public class Fonctions {
 	
 	public static JButton bouttonCréer (JButton btn) {
 		btn = new JButton("<html><font color = white>Créer</font></html>");
-		btn.setBounds(30, 385, 150, 30);
+		btn.setBounds(30, 400, 150, 30);
 		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
 		btn.setBackground(new java.awt.Color(39, 170, 243));
 		btn.setBorder(null);
@@ -80,7 +80,7 @@ public class Fonctions {
 	
 	public static JButton bouttonPersonnalisable (JButton btn, String nom) {
 		btn = new JButton("<html><font color = white>"+nom+"</font></html>");
-		btn.setBounds(370, 385, 150, 30);
+		btn.setBounds(370, 400, 150, 30);
 		btn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
 		btn.setBackground(new java.awt.Color(39, 170, 243));
 		btn.setBorder(null);

@@ -169,8 +169,6 @@ public class MenuGestionBail extends JPanel {
 			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
 				if (e.getSource() == MainWindow.creer)
 					Bail.CreerBail(infosBail);
-					System.out.println(assuranceField.getText());
-					Bail.VérificationCreationBail(assuranceField);
 			}
 		});
 		
@@ -179,9 +177,9 @@ public class MenuGestionBail extends JPanel {
 		MainWindow.renouveler.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-			if (e.getSource() == MainWindow.quitter)
-				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+			if (e.getSource() == MainWindow.renouveler)
+				Bail.RenouvelerBail(selectBox, infosBail);
+				selectBox.setSelectedIndex(0);
 			}
 		});
 
@@ -216,7 +214,6 @@ public class MenuGestionBail extends JPanel {
 			}
 		});
 		
-		
 
 		add(numUniteLbl);
 		add(numUniteField);
@@ -244,8 +241,8 @@ public class MenuGestionBail extends JPanel {
 		add(Bail.remplirSelection(selectBox));
 		
 		add(MainWindow.renouveler);
-		add(MainWindow.modifier); // à modifier une fois action du bouton réaliser
-		add(MainWindow.creer); // à modifier une fois action du bouton réaliser
+		add(MainWindow.modifier); 
+		add(MainWindow.creer); 
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "GESTION DE BAUX"));
