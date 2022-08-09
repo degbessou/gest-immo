@@ -142,13 +142,6 @@ public class MenuGestionBail extends JPanel {
 		stationnementField.setBackground(Color.WHITE);
 		stationnementField.setBorder(null);
 		
-//		// bouton liste des baux
-//		JButton listeBauxBtn = new JButton("<html><font color = white>Liste Des Baux</font></html>");
-//		listeBauxBtn.setBounds(540, 346, 150, 30);
-//		listeBauxBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20)); 
-//		listeBauxBtn.setBackground(new java.awt.Color(39, 170, 243));
-//		listeBauxBtn.setBorder(null);
-		
 		infosBail = new JTextField [] {numUniteField, typeUnitesField, dateEntreeField, assuranceField, remisageField, locataireField, loyerField, dateSortieField, renouvField, stationnementField};
 		
 		// bouton liste des baux

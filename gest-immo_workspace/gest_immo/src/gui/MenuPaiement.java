@@ -6,7 +6,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import outils.Fonctions;
+import system.Bail;
 import system.Employe;
+import system.Paiement;
 
 public class MenuPaiement extends JPanel {
 	
@@ -99,6 +101,14 @@ public class MenuPaiement extends JPanel {
 				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
 			}
 		});
+		
+		LocataireBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == LocataireBox)
+					Paiement.remplirSelectionBail(LocataireBox, choixBailBox);
+			}
+		});
 
 		add(loyerPayeField);
 		add(loyerPayeLbl);
@@ -110,7 +120,9 @@ public class MenuPaiement extends JPanel {
 		add(moisLbl);
 		add(soldeField);
 		add(soldeLbl);
-
+		add(Paiement.remplirSelectionLocataire(LocataireBox));
+		add(Paiement.remplirSelectionPeriode(moisBox));
+		
 		add(Fonctions.bouttonCréer(MainWindow.creer)); // à modifier une fois action du bouton réaliser
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);

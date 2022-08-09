@@ -79,7 +79,7 @@ public class Unites {
 
 	
     /**
-     * méthode qui parcours la liste des baux 
+     * méthode qui parcours la liste des unités
      * et remplie la liste déroulante des noms des détenteurs de baux 
      */
 	public static Component RemplirSelection (JComboBox box) {

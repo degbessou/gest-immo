@@ -68,7 +68,7 @@ public class MenuListeLocataire extends JPanel{
 		add(tableListeLocataire);
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
-		add(Fonctions.titre(MainWindow.titre, "LISTE DES BAUX"));
+		add(Fonctions.titre(MainWindow.titre, "LISTE DES LOCATAIRES"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
 		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
