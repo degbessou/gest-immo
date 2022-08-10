@@ -20,6 +20,7 @@ public class MenuListeMBAM extends JPanel {
 	public void fenetreMenuMBAM() {
 		setLayout(null);
 		
+		// table qui contient la liste
 		JTable listeMBAM = new JTable(Bail.ListeModification(), Bail.Colonne());
 		JScrollPane tablelisteMBAM = new JScrollPane(listeMBAM);
 		tablelisteMBAM.setBounds(15, 145, 680, 227);
@@ -31,7 +32,7 @@ public class MenuListeMBAM extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.listeBail = new MenuListeBaux();
-				MainWindow.ouvrePanel(MainWindow.listeBail);
+				MainWindow.ouvrePanel(MainWindow.listeBail); // ouvre le menu liste bail
 			}
 		});
 		

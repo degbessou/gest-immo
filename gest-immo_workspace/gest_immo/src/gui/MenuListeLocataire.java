@@ -22,7 +22,6 @@ public class MenuListeLocataire extends JPanel{
 	public void fenetreMenuListeLocataire() {
 		setLayout(null);
 		
-		
 		// affichage label
 		JLabel affichageLbl = new JLabel("AFFICHAGE");
 		affichageLbl.setBounds(393, 112, 89, 17); // dimension
@@ -34,9 +33,9 @@ public class MenuListeLocataire extends JPanel{
 		affichageBox.setBackground(Color.WHITE);
 		affichageBox.setBackground(null);
 		
-		
+		// table qui contient la liste
 		JTable tableListeLocataire = new JTable(Locataire.afficherListeLocataire(), Locataire.Colonne());
-		JScrollPane ListeLocataire = new JScrollPane(tableListeLocataire);
+		JScrollPane ListeLocataire = new JScrollPane(tableListeLocataire); 
 		ListeLocataire.setBounds(15, 145, 680, 227);
 		
 
@@ -47,11 +46,12 @@ public class MenuListeLocataire extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == MainWindow.annuler)
 					MainWindow.inscription = new MenuInscriptionLocataire();
-					MainWindow.ouvrePanel(MainWindow.inscription);
+					MainWindow.ouvrePanel(MainWindow.inscription); // ouvre le menu inscription locataire
 			}
 		});
 		
-
+		// ajout des différents composants du menu
+		
 		add(affichageBox);
 		add(affichageLbl);
 		add(Json.remplirFiltreAffichage(affichageBox));

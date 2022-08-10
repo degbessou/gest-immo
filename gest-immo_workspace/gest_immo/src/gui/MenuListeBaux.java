@@ -73,7 +73,7 @@ public class MenuListeBaux extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.bail = new MenuGestionBail();
-				MainWindow.ouvrePanel(MainWindow.bail);
+				MainWindow.ouvrePanel(MainWindow.bail); // ouvre le menu bail
 			}
 		});
 		
@@ -82,7 +82,7 @@ public class MenuListeBaux extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnPR )
 				MainWindow.listePR = new MenuListePR();
-				MainWindow.ouvrePanel(MainWindow.listePR);
+				MainWindow.ouvrePanel(MainWindow.listePR); // ouvre le menu liste pr
 			}
 		});
 		
@@ -91,7 +91,7 @@ public class MenuListeBaux extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnFUV )
 				MainWindow.listeFV = new MenuListeFV();
-				MainWindow.ouvrePanel(MainWindow.listeFV);
+				MainWindow.ouvrePanel(MainWindow.listeFV); // ouvre le menu liste FV
 			}
 		});
 		
@@ -100,7 +100,7 @@ public class MenuListeBaux extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnMBAM )
 				MainWindow.listeMBAM = new MenuListeMBAM();
-				MainWindow.ouvrePanel(MainWindow.listeMBAM);
+				MainWindow.ouvrePanel(MainWindow.listeMBAM); // ouvre le menu liste mbam
 			}
 		});
 		

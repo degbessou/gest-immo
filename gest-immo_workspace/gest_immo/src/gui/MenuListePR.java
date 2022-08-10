@@ -23,7 +23,7 @@ public class MenuListePR extends JPanel {
 	public void fenetreMenuListePR() {
 		setLayout(null);
 		
-		
+		// table qui contient la liste
 		JTable listePR = new JTable(Bail.ListeRenouvProchain(), Bail.Colonne());
 		JScrollPane tableListePR = new JScrollPane(listePR);
 		tableListePR.setBounds(15, 145, 680, 227);
@@ -35,7 +35,7 @@ public class MenuListePR extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.listeBail = new MenuListeBaux();
-				MainWindow.ouvrePanel(MainWindow.listeBail);
+				MainWindow.ouvrePanel(MainWindow.listeBail); // ouvre le menu liste bail
 			}
 		});
 		

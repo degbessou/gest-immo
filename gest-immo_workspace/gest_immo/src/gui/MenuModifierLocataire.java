@@ -68,7 +68,7 @@ public class MenuModifierLocataire extends JPanel {
 		nomLocataireField.setBorder(null);
 
 		// prénom field
-		JTextField prenomField = new JTextField(); // check jdatePicker
+		JTextField prenomField = new JTextField(); 
 		prenomField.setBounds(143, 158, 140, 20);
 		prenomField.setBackground(Color.WHITE);
 		prenomField.setBorder(null);
@@ -146,6 +146,7 @@ public class MenuModifierLocataire extends JPanel {
 		});
 
 		// ajout des différents composants du menu
+		
 		add(nomLocataireLbl);
 		add(prenomLocataireLbl);
 		add(adresseLbl);

@@ -29,10 +29,10 @@ public class MenuPaiement extends JPanel {
 		moisLbl.setBounds(30, 159, 100, 17); // dimension
 		moisLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
 
-		// SOLDE label
-		JLabel soldeLbl = new JLabel("SOLDE");
-		soldeLbl.setBounds(30, 206, 107, 17); // dimension
-		soldeLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); 
+//		// SOLDE label
+//		JLabel soldeLbl = new JLabel("SOLDE");
+//		soldeLbl.setBounds(30, 206, 107, 17); // dimension
+//		soldeLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); 
 		
 		
 		// choix bail label
@@ -61,13 +61,13 @@ public class MenuPaiement extends JPanel {
 		moisBox.setBounds(143, 158, 140, 20);
 		moisBox.setBackground(Color.WHITE);
 		moisBox.setBorder(null);
-
-		// solde field
-		JTextField soldeField = new JTextField();
-		soldeField.setEditable(false);
-		soldeField.setBounds(143, 205, 140, 20);
-		soldeField.setBackground(Color.WHITE);
-		soldeField.setBorder(null);		
+//
+//		// solde field
+//		JTextField soldeField = new JTextField();
+//		soldeField.setEditable(false);
+//		soldeField.setBounds(143, 205, 140, 20);
+//		soldeField.setBackground(Color.WHITE);
+//		soldeField.setBorder(null);		
 
 		// choix bail box
 		JComboBox choixBailBox = new JComboBox();
@@ -91,9 +91,9 @@ public class MenuPaiement extends JPanel {
 		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
 		MainWindow.creer.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == MainWindow.creer)
-					Paiement.enregistrementPaiement(LocataireBox, choixBailBox, moisBox, anneeField, loyerPayeField);;
+					Paiement.enregistrementPaiement(LocataireBox, choixBailBox, moisBox, anneeField, loyerPayeField); //enregistre un paiement
 			}
 		});
 
@@ -104,15 +104,15 @@ public class MenuPaiement extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+				MainWindow.ouvrePanel(MainWindow.menuPrincipal); // ouvre le menu principal
 			}
 		});
 		
 		LocataireBox.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == LocataireBox)
-					Paiement.remplirSelectionBail(LocataireBox, choixBailBox);
+					Paiement.remplirSelectionBail(LocataireBox, choixBailBox); 
 			}
 		});
 		
@@ -123,10 +123,11 @@ public class MenuPaiement extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == MainWindow.liste )
 					MainWindow.hPaiement = new MenuHistoriquePaiement();
-					MainWindow.ouvrePanel(MainWindow.hPaiement);
+					MainWindow.ouvrePanel(MainWindow.hPaiement); // ouvre le menu Historique De Paiement
 			}
 		});
-
+		
+		// ajout des différents composants du menu
 		add(loyerPayeField);
 		add(loyerPayeLbl);
 		add(choixBailBox);
@@ -135,8 +136,8 @@ public class MenuPaiement extends JPanel {
 		add(LocataireLbl);
 		add(moisBox);
 		add(moisLbl);
-		add(soldeField);
-		add(soldeLbl);
+//		add(soldeField);
+//		add(soldeLbl);
 		add(anneeField);
 		add(anneeLbl);
 		

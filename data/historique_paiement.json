@@ -1,1 +1,380 @@
-[]
+[
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "janvier",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "fevrier",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "mars",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "avril",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "mai",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "101",
+   "locataire": "Marima",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "janvier",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "fevrier",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "mars",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "avril",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "mai",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "104",
+   "locataire": "Cochse",
+   "mois": "aout",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "105",
+   "locataire": "Corinder",
+   "mois": "avril",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "105",
+   "locataire": "Corinder",
+   "mois": "mai",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "105",
+   "locataire": "Corinder",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "105",
+   "locataire": "Corinder",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "105",
+   "locataire": "Corinder",
+   "mois": "aout",
+   "annee": "2022",
+   "montantPayer": "2700"
+ },
+ {
+   "idBail": "106",
+   "locataire": "Naom",
+   "mois": "avril",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "106",
+   "locataire": "Naom",
+   "mois": "mai",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "106",
+   "locataire": "Naom",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "106",
+   "locataire": "Naom",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "106",
+   "locataire": "Naom",
+   "mois": "aout",
+   "annee": "2022",
+   "montantPayer": "2200"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "septembre",
+   "annee": "2021",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "octobre",
+   "annee": "2021",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "novembre",
+   "annee": "2021",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "d�cembre",
+   "annee": "2021",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "janvier",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "fevrier",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "mars",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "avril",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "mai",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "109",
+   "locataire": "Alexndrea",
+   "mois": "aout",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "201",
+   "locataire": "KylaRi",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "201",
+   "locataire": "KylaRi",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "201",
+   "locataire": "KylaRi",
+   "mois": "aout",
+   "annee": "2022",
+   "montantPayer": "1500"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "septembre",
+   "annee": "2021",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "octobre",
+   "annee": "2021",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "novembre",
+   "annee": "2021",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "d�cembre",
+   "annee": "2021",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "janvier",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "fevrier",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "mars",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "avril",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "mai",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "203",
+   "locataire": "Thani",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "900"
+ },
+ {
+   "idBail": "207",
+   "locataire": "Ibraima",
+   "mois": "juin",
+   "annee": "2022",
+   "montantPayer": "1200"
+ },
+ {
+   "idBail": "207",
+   "locataire": "Ibraima",
+   "mois": "juillet",
+   "annee": "2022",
+   "montantPayer": "1200"
+ },
+ {
+   "idBail": "207",
+   "locataire": "Ibraima",
+   "mois": "aout",
+   "annee": "2022",
+   "montantPayer": "1200"
+ }
+]

@@ -119,7 +119,7 @@ public class MenuModifierUnites extends JPanel{
 		nbrePieceField.setBorder(null);
 		
 		// condition field
-		JTextField conditionField = new JTextField(); // check jdatePicker
+		JTextField conditionField = new JTextField(); 
 		conditionField.setBounds(550, 158, 140, 20);
 		conditionField.setBackground(Color.WHITE);
 		conditionField.setBorder(null);
@@ -144,7 +144,7 @@ public class MenuModifierUnites extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
-				Unites.ModifierInfosUnites(selectBox, infosUnites);
+				Unites.ModifierInfosUnites(selectBox, infosUnites); // modifie une unité
 				
 			}
 		});
@@ -156,7 +156,7 @@ public class MenuModifierUnites extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.catalogue = new MenuCatalogue();
-				MainWindow.ouvrePanel(MainWindow.catalogue);
+				MainWindow.ouvrePanel(MainWindow.catalogue); // ouvre le menu catalogue
 			}
 		});
 		
@@ -164,7 +164,7 @@ public class MenuModifierUnites extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == selectBox)
-					Unites.AfficherInfosUnites(selectBox, infosUnites);
+					Unites.AfficherInfosUnites(selectBox, infosUnites); // affiche les informations de l'unité
 			}
 		});
 
@@ -189,6 +189,7 @@ public class MenuModifierUnites extends JPanel{
 		add(selectLbl);
 		add(selectBox);
 		
+		// ajout des différents composants du menu
 		add(Unites.RemplirSelection(selectBox));
 		add(MainWindow.modifier);
 		add(MainWindow.annuler);

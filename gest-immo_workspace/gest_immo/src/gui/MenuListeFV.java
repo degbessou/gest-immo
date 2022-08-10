@@ -20,8 +20,7 @@ public class MenuListeFV extends JPanel {
 	public void fenetreMenuListeFV() {
 		setLayout(null);
 		
-		
-		
+		// table qui contient la liste
 		JTable listeFV = new JTable(Bail.ListeFutursVacant(), Bail.Colonne());
 		JScrollPane tableListeFV = new JScrollPane(listeFV);
 		tableListeFV.setBounds(15, 145, 680, 227);
@@ -33,7 +32,7 @@ public class MenuListeFV extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.listeBail = new MenuListeBaux();
-				MainWindow.ouvrePanel(MainWindow.listeBail);
+				MainWindow.ouvrePanel(MainWindow.listeBail); // ouvre le menu liste bail
 			}
 		});
 		

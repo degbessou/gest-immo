@@ -17,7 +17,7 @@ import outils.Json;
 public class Bail {
 	
 	private static String chemin = "baux.json";
-	private static String [] infosBail = {"idBail", "idUnites", "typeUnites", "dateEntree", "idAssurance",  "remisage", "locataire", "loyer", "dateSortie",  "revouvelabiliter", "stationnement"};
+	private static String [] infosBail = {"idBail", "idUnites", "typeUnites", "dateEntree", "idAssurance",  "remisage", "locataire", "loyerBase", "dateSortie",  "revouvelabiliter", "stationnement"};
 	private long idBail ;
 	private LocalDate dateEntree ;
 	private LocalDate dateSortie;
@@ -25,17 +25,124 @@ public class Bail {
 	private boolean remise ;
 	private boolean revouv;
 	private boolean stationnement;
-	private Unites_1 unites;
 	private Locataire locataire;
 	private Unites uniteLoue ;
 	
-    /**
-     * méthode qui récupère les informations du bail 
-     * et les sauvegarde dans le fichier json.
-     */
+	public Bail() {
+		super();
+	}
+
+	public Bail(long idBail, LocalDate dateEntree, LocalDate dateSortie, String idAss, boolean remise, boolean revouv,
+			boolean stationnement, Unites unites, Locataire locataire, Unites uniteLoue) {
+		super();
+		this.idBail = idBail;
+		this.dateEntree = dateEntree;
+		this.dateSortie = dateSortie;
+		this.idAss = idAss;
+		this.remise = remise;
+		this.revouv = revouv;
+		this.stationnement = stationnement;
+		this.uniteLoue = unites;
+		this.locataire = locataire;
+		this.uniteLoue = uniteLoue;
+	}
+
+	public static String getChemin() {
+		return chemin;
+	}
+
+	public static void setChemin(String chemin) {
+		Bail.chemin = chemin;
+	}
+
+	public long getIdBail() {
+		return idBail;
+	}
+
+	public void setIdBail(long idBail) {
+		this.idBail = idBail;
+	}
+
+	public LocalDate getDateEntree() {
+		return dateEntree;
+	}
+
+	public void setDateEntree(LocalDate dateEntree) {
+		this.dateEntree = dateEntree;
+	}
+
+	public LocalDate getDateSortie() {
+		return dateSortie;
+	}
+
+	public void setDateSortie(LocalDate dateSortie) {
+		this.dateSortie = dateSortie;
+	}
+
+	public String getIdAss() {
+		return idAss;
+	}
+
+	public void setIdAss(String idAss) {
+		this.idAss = idAss;
+	}
+
+	public boolean isRemise() {
+		return remise;
+	}
+
+	public void setRemise(boolean remise) {
+		this.remise = remise;
+	}
+
+	public boolean isRevouv() {
+		return revouv;
+	}
+
+	public void setRevouv(boolean revouv) {
+		this.revouv = revouv;
+	}
+
+	public boolean isStationnement() {
+		return stationnement;
+	}
+
+	public void setStationnement(boolean stationnement) {
+		this.stationnement = stationnement;
+	}
+
+	public Unites getUnites() {
+		return uniteLoue;
+	}
+
+	public void setUnites(Unites unites) {
+		this.uniteLoue = unites;
+	}
+
+	public Locataire getLocataire() {
+		return locataire;
+	}
+
+	public void setLocataire(Locataire locataire) {
+		this.locataire = locataire;
+	}
+
+	public Unites getUniteLoue() {
+		return uniteLoue;
+	}
+
+	public void setUniteLoue(Unites uniteLoue) {
+		this.uniteLoue = uniteLoue;
+	}
+	
+	/**
+	 * méthode qui récupère les informations du bail 
+	 * et les sauvegarde dans le fichier json.
+	 * @param text 
+	 */
 	@SuppressWarnings("unchecked")
 	public  static void CreerBail (JTextField [] text) {
-		String[] coord = new String[12];
+		String[] coord = new String[11];
 		JSONObject obj = new JSONObject();
 		
 		coord[0] = Json.NumeroId(); // attribution de l'id du bail
@@ -70,9 +177,14 @@ public class Bail {
 		}
 	}
 	
+	/**
+	 * Cette méthode permet de modifier les informations d'un bail
+	 * @param text
+	 * @param id
+	 */
 	@SuppressWarnings("unchecked")
 	public  static void ModifierBail (JTextField [] text, String id) {
-		String[] coord = new String[12];
+		String[] coord = new String[11];
 		JSONObject obj = new JSONObject();
 		
 		coord[0] = id; // attribution de l'id du bail
@@ -106,10 +218,12 @@ public class Bail {
 		}
 	}
 	
-    /**
-     * méthode qui parcours la liste des baux 
-     * et remplie la liste déroulante des noms des détenteurs de baux 
-     */
+	/**
+	 *  méthode qui parcours la liste des baux et remplie la liste 
+	 *  déroulante des noms des détenteurs de baux 
+	 * @param box
+	 * @return Component box
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Component remplirSelection (JComboBox box) {
 		JSONArray listeBail = Json.LireData(Json.path(getChemin()));
@@ -120,11 +234,12 @@ public class Bail {
 		return box;	
 	}
 	
-    /**
-     * méthode qui parcours la liste des baux 
-     * et remplie les différents champs du menu avec 
-     * les données du bail choisi.
-     */
+	/**
+	 * méthode qui parcours la liste des baux et remplie 
+	 * les différents champs du menu avec les données du bail choisi.
+	 * @param locataire
+	 * @param text
+	 */
 	@SuppressWarnings("rawtypes")
 	public static void afficherInfosBail (Component locataire, JTextField [] text) {
 		JSONArray listeBail = Json.LireData(Json.path(getChemin()));
@@ -148,11 +263,12 @@ public class Bail {
 		
 	}
 	
-    /**
-     * méthode qui parcours la liste des baux 
-     * et modifie les données du bail choisi 
-     * avec les nouvelles valeurs saisies
-     */
+	/**
+	 * méthode qui parcours la liste des baux et modifie 
+	 * les données du bail choisi avec les nouvelles valeurs saisies
+	 * @param locataire
+	 * @param text
+	 */
 	@SuppressWarnings({"rawtypes" })
 	public static void modifierInfosBail(Component locataire, JTextField[] text) {
 		JSONArray listeBail = Json.LireData(Json.path(getChemin()));
@@ -169,9 +285,10 @@ public class Bail {
 	}
 	
 	/**
-     * méthode qui permet de renouveler le bail d'un locataire
-     * 
-     */
+	 * méthode qui permet de renouveler le bail d'un locataire
+	 * @param locataire
+	 * @param text
+	 */
 	@SuppressWarnings({"rawtypes" })
 	public static void RenouvelerBail(Component locataire, JTextField[] text) {
 		JSONArray listeBail = Json.LireData(Json.path(getChemin()));
@@ -186,9 +303,9 @@ public class Bail {
 	}
 	
 	/**
-     * méthode qui affiche la liste des baux
-     * dans une table
-     */
+	 * méthode qui affiche la liste des baux
+	 * @return Vector
+	 */
 	public static Vector<Vector<String>> afficherListeBail() {
 		JSONArray listeBail = Json.LireData(Json.path(getChemin()));
 		Vector<Vector<String>> dataList = new Vector<>(); 
@@ -206,7 +323,7 @@ public class Bail {
 			data.add((String) object.get("dateEntree"));
 			data.add((String) object.get("dateSortie"));
 			data.add((String) object.get("idAssurance"));
-			data.add((String) object.get("loyer"));
+			data.add((String) object.get("loyerBase"));
 			data.add((String) object.get("revouvelabiliter"));
 			data.add((String) object.get("stationnement"));
 			data.add((String) object.get("remisage"));
@@ -217,7 +334,10 @@ public class Bail {
 		return dataList;
 	}
 	
-	
+	/**
+	 * méthode qui affiche le nom des colonnes de la liste 
+	 * @return Vector
+	 */
 	public static Vector<String> Colonne () {
 		Vector<String> nomColonne = new Vector<>(); // liste qui contient le nom de chaque colonne
 
@@ -339,117 +459,5 @@ public class Bail {
 		}
 		return listModif;
 	}
-	
-	public Bail() {
-		super();
-	}
-
-	public Bail(long idBail, LocalDate dateEntree, LocalDate dateSortie, String idAss, boolean remise, boolean revouv,
-			boolean stationnement, Unites_1 unites, Locataire locataire, Unites uniteLoue) {
-		super();
-		this.idBail = idBail;
-		this.dateEntree = dateEntree;
-		this.dateSortie = dateSortie;
-		this.idAss = idAss;
-		this.remise = remise;
-		this.revouv = revouv;
-		this.stationnement = stationnement;
-		this.unites = unites;
-		this.locataire = locataire;
-		this.uniteLoue = uniteLoue;
-	}
-
-	public static String getChemin() {
-		return chemin;
-	}
-
-	public static void setChemin(String chemin) {
-		Bail.chemin = chemin;
-	}
-
-	public long getIdBail() {
-		return idBail;
-	}
-
-	public void setIdBail(long idBail) {
-		this.idBail = idBail;
-	}
-
-	public LocalDate getDateEntree() {
-		return dateEntree;
-	}
-
-	public void setDateEntree(LocalDate dateEntree) {
-		this.dateEntree = dateEntree;
-	}
-
-	public LocalDate getDateSortie() {
-		return dateSortie;
-	}
-
-	public void setDateSortie(LocalDate dateSortie) {
-		this.dateSortie = dateSortie;
-	}
-
-	public String getIdAss() {
-		return idAss;
-	}
-
-	public void setIdAss(String idAss) {
-		this.idAss = idAss;
-	}
-
-	public boolean isRemise() {
-		return remise;
-	}
-
-	public void setRemise(boolean remise) {
-		this.remise = remise;
-	}
-
-	public boolean isRevouv() {
-		return revouv;
-	}
-
-	public void setRevouv(boolean revouv) {
-		this.revouv = revouv;
-	}
-
-	public boolean isStationnement() {
-		return stationnement;
-	}
-
-	public void setStationnement(boolean stationnement) {
-		this.stationnement = stationnement;
-	}
-
-	public Unites_1 getUnites() {
-		return unites;
-	}
-
-	public void setUnites(Unites_1 unites) {
-		this.unites = unites;
-	}
-
-	public Locataire getLocataire() {
-		return locataire;
-	}
-
-	public void setLocataire(Locataire locataire) {
-		this.locataire = locataire;
-	}
-
-	public Unites getUniteLoue() {
-		return uniteLoue;
-	}
-
-	public void setUniteLoue(Unites uniteLoue) {
-		this.uniteLoue = uniteLoue;
-	}
-	
-	
-
-	
-	
 	
 }

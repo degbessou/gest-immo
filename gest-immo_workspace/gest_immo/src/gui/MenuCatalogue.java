@@ -109,7 +109,7 @@ public class MenuCatalogue extends JPanel{
 		nbrePieceField.setBorder(null);
 		
 		// condition field
-		JTextField conditionField = new JTextField(); // check jdatePicker
+		JTextField conditionField = new JTextField(); 
 		conditionField.setBounds(550, 158, 140, 20);
 		conditionField.setBackground(Color.WHITE);
 		conditionField.setBorder(null);
@@ -135,7 +135,7 @@ public class MenuCatalogue extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == MainWindow.liste )
 					MainWindow.listeUnite = new MenuListeUnites();
-					MainWindow.ouvrePanel(MainWindow.listeUnite);
+					MainWindow.ouvrePanel(MainWindow.listeUnite); // ouvre le menu liste unités
 			}
 		});
 		
@@ -143,7 +143,7 @@ public class MenuCatalogue extends JPanel{
 		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
 		MainWindow.creer.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == MainWindow.creer)
 					Unites.CreerUnites(infosUnites);
 					
@@ -157,7 +157,7 @@ public class MenuCatalogue extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
 				MainWindow.modifierUnites = new MenuModifierUnites();
-				MainWindow.ouvrePanel(MainWindow.modifierUnites);
+				MainWindow.ouvrePanel(MainWindow.modifierUnites); // ouvre le menu modifier unités
 				
 			}
 		});
@@ -169,10 +169,11 @@ public class MenuCatalogue extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+				MainWindow.ouvrePanel(MainWindow.menuPrincipal); // ouvre le menu principal
 			}
 		});
 
+		// ajout des différents composants du menu
 		add(numUniteLbl);
 		add(numUniteField);
 		add(typeUnitesField);

@@ -41,11 +41,11 @@ public class PageAccueil extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == btnConnexion)
-					//mainWindow.frame.setVisible(true);
-					MainWindow.ouvrePanel(MainWindow.connexion);
-					//connexion.start();		
+					MainWindow.ouvrePanel(MainWindow.connexion); // ouvre le menu connexion
 			}
 		});
+		
+		// ajout des différents composants du menu
 		
 		add(Fonctions.signature(MainWindow.copyright));
 		add(btnConnexion);

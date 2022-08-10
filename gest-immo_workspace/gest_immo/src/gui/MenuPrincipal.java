@@ -53,7 +53,7 @@ public class MenuPrincipal extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnInscription)
 				MainWindow.inscription = new MenuInscriptionLocataire ();
-				MainWindow.ouvrePanel(MainWindow.inscription);		
+				MainWindow.ouvrePanel(MainWindow.inscription); // ouvre le menu inscription
 		}
 	});
 		
@@ -63,7 +63,7 @@ public class MenuPrincipal extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnPaiement)
 				MainWindow.paiement = new MenuPaiement ();
-				MainWindow.ouvrePanel(MainWindow.paiement);		
+				MainWindow.ouvrePanel(MainWindow.paiement); // ouvre le menu paiement
 		}
 	});
 		
@@ -73,7 +73,7 @@ public class MenuPrincipal extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == btnBail)
 					MainWindow.bail = new MenuGestionBail();
-				MainWindow.ouvrePanel(MainWindow.bail);
+				MainWindow.ouvrePanel(MainWindow.bail); // ouvre le menu bail
 			}
 		});
 		
@@ -83,7 +83,7 @@ public class MenuPrincipal extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnCatalogue)
 				MainWindow.catalogue = new MenuCatalogue();
-				MainWindow.ouvrePanel(MainWindow.catalogue);
+				MainWindow.ouvrePanel(MainWindow.catalogue); // ouvre le menu catalogue
 			}
 		});
 		
@@ -94,16 +94,17 @@ public class MenuPrincipal extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.quitter)
 				MainWindow.pageAccueil = new PageAccueil ();
-				MainWindow.ouvrePanel(MainWindow.pageAccueil);
+				MainWindow.ouvrePanel(MainWindow.pageAccueil); // ouvre le menu page accueil
 			}
 		});
 		
-		
+		// ajout des différents composants du menu
 		
 		add(btnPaiement);
 		add(btnCatalogue);
 		add(btnBail);
 		add(btnInscription);
+		
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
 		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));

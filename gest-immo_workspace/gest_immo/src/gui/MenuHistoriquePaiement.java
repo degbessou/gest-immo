@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import outils.Fonctions;
 import outils.Json;
@@ -28,21 +29,10 @@ public class MenuHistoriquePaiement extends JPanel{
 	public void fenetreMenuHistoriquePaiement() {
 		setLayout(null);
 		
-//		// filtre : type Unités label
-//		JLabel filtreTypeUnitesLbl = new JLabel("TYPE UNITÉS");
-//		filtreTypeUnitesLbl.setBounds(440, 112, 126, 17); 
-//		filtreTypeUnitesLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); 
-		
 		// affichage label
 		JLabel affichageLbl = new JLabel("AFFICHAGE");
 		affichageLbl.setBounds(25, 408, 91, 17); 
 		affichageLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); 
-
-//		// filtre : type unités box
-//		JComboBox filtreTypeUnitesBox = new JComboBox();
-//		filtreTypeUnitesBox.setBounds(550, 111, 140, 20);
-//		filtreTypeUnitesBox.setBackground(Color.WHITE);
-//		filtreTypeUnitesBox.setBorder(null);
 
 		// affichage box
 		JComboBox affichageBox = new JComboBox();
@@ -50,13 +40,11 @@ public class MenuHistoriquePaiement extends JPanel{
 		affichageBox.setBackground(Color.WHITE);
 		affichageBox.setBackground(null);
 		
-		
-
-		
 		// tableau d'affichage de la liste des locataires
-		tableHistoriquePaiement = new JScrollPane(Paiement.AfficherHistoriquePaiement());
-		tableHistoriquePaiement.setBounds(20, 87, 680, 300);
-		
+		JTable tableHistoriquePaiement = new JTable(Paiement.AfficherHistoriquePaiement(), Paiement.Colonne());
+		JScrollPane HistoriquePaiement = new JScrollPane(tableHistoriquePaiement);
+		HistoriquePaiement.setBounds(20, 87, 680, 300);
+
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
 		MainWindow.annuler.addActionListener(new ActionListener() {
@@ -64,17 +52,16 @@ public class MenuHistoriquePaiement extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.catalogue = new MenuCatalogue();
-				MainWindow.ouvrePanel(MainWindow.catalogue);
+				MainWindow.ouvrePanel(MainWindow.catalogue); // ouvre le menu catalogue
 			}
 		});
 		
 		
-//		add(filtreTypeUnitesBox);
-//		add(filtreTypeUnitesLbl);
+		// ajout des différents composants du menu
 		add(affichageBox);
 		add(affichageLbl);
+		add(HistoriquePaiement);
 		
-		add(tableHistoriquePaiement);
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "HISTORIQUE DE PAIEMENT"));

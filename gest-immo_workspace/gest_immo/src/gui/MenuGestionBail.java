@@ -75,7 +75,7 @@ public class MenuGestionBail extends JPanel {
 		numUniteField.setBorder(null);
 
 		// type unités field
-		JTextField typeUnitesField = new JTextField(); // check jdatePicker
+		JTextField typeUnitesField = new JTextField(); 
 		typeUnitesField.setBounds(143, 158, 140, 20);
 		typeUnitesField.setBackground(Color.WHITE);
 		typeUnitesField.setBorder(null);
@@ -104,10 +104,9 @@ public class MenuGestionBail extends JPanel {
 		locataireField.setBounds(550, 111, 140, 20);
 		locataireField.setBackground(Color.WHITE);
 		locataireField.setBorder(null);
-		//assuranceBox.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 		
 		// loyer field
-		JTextField loyerField = new JTextField(); // check jdatePicker
+		JTextField loyerField = new JTextField(); 
 		loyerField.setBounds(550, 158, 140, 20);
 		loyerField.setBackground(Color.WHITE);
 		loyerField.setBorder(null);
@@ -147,9 +146,9 @@ public class MenuGestionBail extends JPanel {
 		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
 		MainWindow.creer.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == MainWindow.creer)
-					Bail.CreerBail(infosBail);
+					Bail.CreerBail(infosBail); // creer un bail
 			}
 		});
 
@@ -160,7 +159,7 @@ public class MenuGestionBail extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+				MainWindow.ouvrePanel(MainWindow.menuPrincipal); // ouvre le menu principal
 			}
 		});
 		
@@ -171,12 +170,12 @@ public class MenuGestionBail extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
 				MainWindow.modifierBail = new MenuModifierBail();
-				MainWindow.ouvrePanel(MainWindow.modifierBail); 
+				MainWindow.ouvrePanel(MainWindow.modifierBail); // ouvre le menu modifier bail
 				
 			}
 		});
 		
-
+		// ajout des différents composants du menu
 		add(numUniteLbl);
 		add(numUniteField);
 		add(typeUnitesField);
@@ -197,6 +196,7 @@ public class MenuGestionBail extends JPanel {
 		add(renouvLbl);
 		add(stationnementField);
 		add(stationnementLbl);
+		
 		add(MainWindow.liste);
 		add(MainWindow.modifier); 
 		add(MainWindow.creer); 

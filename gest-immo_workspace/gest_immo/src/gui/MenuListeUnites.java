@@ -36,7 +36,7 @@ public class MenuListeUnites extends JPanel {
 		affichageBox.setBackground(Color.WHITE);
 		affichageBox.setBackground(null);
 		
-		// tableau d'affichage de la liste des locataires
+		// tableau d'affichage de la liste
 		JTable tableListeUnites = new JTable(Unites.AfficherListeUnites(), Unites.Colonne());
 		JScrollPane ListeUnites = new JScrollPane(tableListeUnites);
 		ListeUnites.setBounds(15, 145, 680, 227);
@@ -48,10 +48,11 @@ public class MenuListeUnites extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.catalogue = new MenuCatalogue();
-				MainWindow.ouvrePanel(MainWindow.catalogue);
+				MainWindow.ouvrePanel(MainWindow.catalogue); // ouvre le menu catalogue
 			}
 		});
 		
+		// ajout des différents composants du menu
 		add(affichageBox);
 		add(affichageLbl);
 		add(ListeUnites);

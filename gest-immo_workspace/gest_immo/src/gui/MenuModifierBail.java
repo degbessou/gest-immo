@@ -122,7 +122,6 @@ public class MenuModifierBail extends JPanel {
 		locataireField.setBounds(550, 111, 140, 20);
 		locataireField.setBackground(Color.WHITE);
 		locataireField.setBorder(null);
-		//assuranceBox.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 		
 		// loyer field
 		JTextField loyerField = new JTextField(); // check jdatePicker
@@ -150,13 +149,13 @@ public class MenuModifierBail extends JPanel {
 		
 		infosBail = new JTextField [] {numUniteField, typeUnitesField, dateEntreeField, assuranceField, remisageField, locataireField, loyerField, dateSortieField, renouvField, stationnementField};
 		
-//		// bouton renouveler action
+		// bouton renouveler action
 		MainWindow.renouveler = Fonctions.bouttonPersonnalisable(MainWindow.renouveler, "Renouveler");
 		MainWindow.renouveler.addActionListener(new ActionListener() {
 		@Override
-		public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+		public void actionPerformed(ActionEvent e) { 
 			if (e.getSource() == MainWindow.renouveler)
-				Bail.RenouvelerBail(selectBox, infosBail);
+				Bail.RenouvelerBail(selectBox, infosBail); // renouvelle le bail
 			}
 		});
 
@@ -167,7 +166,7 @@ public class MenuModifierBail extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
 				MainWindow.bail = new MenuGestionBail();
-				MainWindow.ouvrePanel(MainWindow.bail);
+				MainWindow.ouvrePanel(MainWindow.bail); // ouvre le menu bail
 			}
 		});
 		
@@ -177,19 +176,20 @@ public class MenuModifierBail extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
-				Bail.modifierInfosBail(selectBox, infosBail);
+				Bail.modifierInfosBail(selectBox, infosBail); // modifie le bail
 			}
 		});
 		
 		selectBox.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+			public void actionPerformed(ActionEvent e) { 
 				if (e.getSource() == selectBox)
-					Bail.afficherInfosBail(selectBox, infosBail);
+					Bail.afficherInfosBail(selectBox, infosBail); // affiche les infos du bail
 			}
 		});
 		
-
+		// ajout des différents composants du menu
+		
 		add(numUniteLbl);
 		add(numUniteField);
 		add(typeUnitesField);

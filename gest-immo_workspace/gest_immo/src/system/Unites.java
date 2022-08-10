@@ -16,21 +16,197 @@ import outils.Json;
 public class Unites {
 	//JSONArray listeBail = Json.LireData(Json.path(getChemin()));
 	private static String chemin = "unités.json";
-
-
 	private static String [] infosUnités = {"idUnites", "typeUnites", "adresse", "anneeConstruction", "superficie", "nombrePieces", "condition", "disponibiliter", "proprietaire", "loyerMensuel", "prixRemisageMensuel", "prixStationnementMensuel"};
-	private static String idUnites;
-	private static String typeUnites;
-	private static String adresse;
-	private static String anneeConstruction;
-	private static String superficie;
-	private static String nombrePieces;
-	private static String condition;
-	private static String disponibiliter;
-	private static String proprietaire;
+	
+	private String nombrePieces;
 	private static String loyerMensuel;
-	private static String prixRemisageMensuel = "75";
-	private static String prixStationnementMensuel = "100";
+	private int idUnites;
+	private String typeUnites;
+	private String adresse;
+	private String anneeConstruction;
+	private String superficie;
+	private String condition;
+	private boolean disponibiliter;
+	private String proprietaire;
+	private static int prixRemisageMensuel = 75;
+	private static int prixStationnementMensuel = 100;
+
+	public Unites() {
+		super();
+	}
+
+
+	public Unites(String nombrePieces, String loyerMensuel, int idUnites, String typeUnites, String adresse,
+			String anneeConstruction, String superficie, String condition, boolean disponibiliter, String proprietaire,
+			int prixRemisageMensuel, int prixStationnementMensuel) {
+		super();
+		this.nombrePieces = nombrePieces;
+		this.idUnites = idUnites;
+		this.typeUnites = typeUnites;
+		this.adresse = adresse;
+		this.anneeConstruction = anneeConstruction;
+		this.superficie = superficie;
+		this.condition = condition;
+		this.disponibiliter = disponibiliter;
+		this.proprietaire = proprietaire;
+	}
+
+
+	public static String getChemin() {
+		return chemin;
+	}
+
+	public static void setChemin(String chemin) {
+		Unites.chemin = chemin;
+	}
+	
+	public static String[] getInfosUnités() {
+		return infosUnités;
+	}
+
+	public static void setInfosUnités(String[] infosUnités) {
+		Unites.infosUnités = infosUnités;
+	}
+
+
+	public String getNombrePieces() {
+		return nombrePieces;
+	}
+
+
+	public void setNombrePieces(String nombrePieces) {
+		this.nombrePieces = nombrePieces;
+	}
+
+
+	public static String getLoyerMensuel(String text) {
+		switch (text) {
+		case "1":
+			loyerMensuel = "900";
+			break;
+		case "2":
+			loyerMensuel = "1200";
+			break;
+		case "3":
+			loyerMensuel = "1500";
+			break;
+		case "4":
+			loyerMensuel = "1800";
+			break;
+		case "5":
+			loyerMensuel = "2200";
+			break;
+		case "6":
+			loyerMensuel = "2700";
+			break;
+		}
+		return loyerMensuel;
+	}
+
+
+	public void setLoyerMensuel(String loyerMensuel) {
+		this.loyerMensuel = loyerMensuel;
+	}
+
+
+	public int getIdUnites() {
+		return idUnites;
+	}
+
+
+	public void setIdUnites(int idUnites) {
+		this.idUnites = idUnites;
+	}
+
+
+	public String getTypeUnites() {
+		return typeUnites;
+	}
+
+
+	public void setTypeUnites(String typeUnites) {
+		this.typeUnites = typeUnites;
+	}
+
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+
+	public String getAnneeConstruction() {
+		return anneeConstruction;
+	}
+
+
+	public void setAnneeConstruction(String anneeConstruction) {
+		this.anneeConstruction = anneeConstruction;
+	}
+
+
+	public String getSuperficie() {
+		return superficie;
+	}
+
+
+	public void setSuperficie(String superficie) {
+		this.superficie = superficie;
+	}
+
+
+	public String getCondition() {
+		return condition;
+	}
+
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+
+	public boolean isDisponibiliter() {
+		return disponibiliter;
+	}
+
+
+	public void setDisponibiliter(boolean disponibiliter) {
+		this.disponibiliter = disponibiliter;
+	}
+
+
+	public String getProprietaire() {
+		return proprietaire;
+	}
+
+
+	public void setProprietaire(String proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
+
+	public static int getPrixRemisageMensuel() {
+		return prixRemisageMensuel;
+	}
+
+
+	public void setPrixRemisageMensuel(int prixRemisageMensuel) {
+		this.prixRemisageMensuel = prixRemisageMensuel;
+	}
+
+
+	public static int getPrixStationnementMensuel() {
+		return prixStationnementMensuel;
+	}
+
+
+	public void setPrixStationnementMensuel(int prixStationnementMensuel) {
+		this.prixStationnementMensuel = prixStationnementMensuel;
+	}
 	
     /**
      * méthode qui récupère les informations des unités 
@@ -41,9 +217,9 @@ public class Unites {
 		String[] coord = new String[12];
 		JSONObject obj = new JSONObject();
 		
-		coord[9] = getLoyerMensuel(text[5]);
-		coord[10] = getPrixRemisageMensuel();
-		coord[11] = getPrixStationnementMensuel();
+		coord[9] = getLoyerMensuel(text[5].getText());
+		coord[10] = String.valueOf(getPrixRemisageMensuel());
+		coord[11] = String.valueOf(getPrixStationnementMensuel());
 		
 	    for (int i = 0; i < text.length; i++) {
 	    	if (text[i].getText().equals("")) {
@@ -187,139 +363,5 @@ public class Unites {
 		nomColonne.add(("Prix Stationnement"));
 		
 		return nomColonne;
-	}
-
-	public static String getChemin() {
-		return chemin;
-	}
-
-	public static void setChemin(String chemin) {
-		Unites.chemin = chemin;
-	}
-	
-	public static String[] getInfosUnités() {
-		return infosUnités;
-	}
-
-	public static void setInfosUnités(String[] infosUnités) {
-		Unites.infosUnités = infosUnités;
-	}
-
-	public static String getIdUnites() {
-		return idUnites;
-	}
-
-	public static void setIdUnites(String idUnites) {
-		Unites.idUnites = idUnites;
-	}
-
-	public static String getTypeUnites() {
-		return typeUnites;
-	}
-
-	public static void setTypeUnites(String typeUnites) {
-		Unites.typeUnites = typeUnites;
-	}
-
-	public static String getAdresse() {
-		return adresse;
-	}
-
-	public static void setAdresse(String adresse) {
-		Unites.adresse = adresse;
-	}
-
-	public static String getAnneeConstruction() {
-		return anneeConstruction;
-	}
-
-	public static void setAnneeConstruction(String anneeConstruction) {
-		Unites.anneeConstruction = anneeConstruction;
-	}
-
-	public static String getSuperficie() {
-		return superficie;
-	}
-
-	public static void setSuperficie(String superficie) {
-		Unites.superficie = superficie;
-	}
-
-	public static String getNombrePieces() {
-		return nombrePieces;
-	}
-
-	public static void setNombrePieces(String nombrePieces) {
-		Unites.nombrePieces = nombrePieces;
-	}
-
-	public static String getCondition() {
-		return condition;
-	}
-
-	public static void setCondition(String condition) {
-		Unites.condition = condition;
-	}
-
-	public static String getDisponibiliter() {
-		return disponibiliter;
-	}
-
-	public static void setDisponibiliter(String disponibiliter) {
-		Unites.disponibiliter = disponibiliter;
-	}
-
-	public static String getProprietaire() {
-		return proprietaire;
-	}
-
-	public static void setProprietaire(String proprietaire) {
-		Unites.proprietaire = proprietaire;
-	}
-
-	public static String getLoyerMensuel(JTextField nbreP) {
-		switch (nbreP.getText()) {
-		case "1":
-			loyerMensuel = "900";
-			break;
-		case "2":
-			loyerMensuel = "1200";
-			break;
-		case "3":
-			loyerMensuel = "1500";
-			break;
-		case "4":
-			loyerMensuel = "1800";
-			break;
-		case "5":
-			loyerMensuel = "2200";
-			break;
-		case "6":
-			loyerMensuel = "2700";
-			break;
-		}
-		return loyerMensuel;
-	}
-
-	public static void setLoyerMensuel(String loyerMensuel) {
-		Unites.loyerMensuel = loyerMensuel;
-	}
-
-	public static String getPrixRemisageMensuel() {
-		return prixRemisageMensuel;
-	}
-
-	public static void setPrixRemisageMensuel(String prixRemisageMensuel) {
-		Unites.prixRemisageMensuel = prixRemisageMensuel;
-	}
-
-	public static String getPrixStationnementMensuel() {
-		return prixStationnementMensuel;
-	}
-
-	public static void setPrixStationnementMensuel(String prixStationnementMensuel) {
-		Unites.prixStationnementMensuel = prixStationnementMensuel;
-	}
-	
-	
+	}	
 }

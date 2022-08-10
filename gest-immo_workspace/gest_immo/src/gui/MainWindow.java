@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MainWindow {
+	
 	public static JFrame frame;
 	protected static MenuConnexion connexion;
 	protected static JLabel copyright; // signature gest-immo
@@ -24,7 +25,6 @@ public class MainWindow {
 	protected static MenuModifierBail modifierBail;
 	protected static MenuModifierUnites modifierUnites;
 	protected static JPanel dash;
-
 	protected static JButton quitter;
 	protected static JLabel identifiantEmploye;
 	protected static JButton annuler;
@@ -32,13 +32,7 @@ public class MainWindow {
 	protected static JButton modifier;
 	protected static JButton renouveler;
 	protected static JButton liste;
-
 	protected static JLabel titre;
-//	protected static CreerLocation creerLocation;
-//	protected static ListeLocation listeLocation;
-//	protected static JLabel identifiantClient;
-
-//	protected static AjoutVoiture ajoutVoiture;
 	
 	public MainWindow () {
 		
@@ -63,7 +57,7 @@ public class MainWindow {
 		frame.setVisible(true);
 		
 		pageAccueil = new PageAccueil ();
-		MainWindow.ouvrePanel(pageAccueil);
+		MainWindow.ouvrePanel(pageAccueil); // ouvre le menu page accueil
 
 	}
 
