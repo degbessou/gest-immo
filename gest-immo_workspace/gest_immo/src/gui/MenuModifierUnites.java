@@ -11,19 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import outils.Fonctions;
-import system.Bail;
 import system.Employe;
 import system.Unites;
 
-public class MenuCatalogue extends JPanel{
+public class MenuModifierUnites extends JPanel{
 	
 	private JTextField[] infosUnites;
 
-	public MenuCatalogue() {
-		fenetreMenuCatalogue();
+	public MenuModifierUnites() {
+		fenetreMenuModifierUnites();
 	}
 	
-	public void fenetreMenuCatalogue() {
+	public void fenetreMenuModifierUnites() {
 		setLayout(null);
 
 		// numéro unité label
@@ -50,6 +49,11 @@ public class MenuCatalogue extends JPanel{
 		JLabel superficieLbl = new JLabel("SUPERFICIE");
 		superficieLbl.setBounds(30, 300, 126, 17); 
 		superficieLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); 
+		
+		// sélection
+		JLabel selectLbl = new JLabel("SÉLECTION");
+		selectLbl.setBounds(30, 347, 88, 17); 
+		selectLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); 
 		
 		// nbre pièces label
 		JLabel nbrePieceLbl = new JLabel("NOMBRE DE PIÈCES");
@@ -101,6 +105,12 @@ public class MenuCatalogue extends JPanel{
 		superficieField.setBounds(143, 299, 140, 20);
 		superficieField.setBackground(Color.WHITE);
 		superficieField.setBorder(null);
+		
+		// sélection box
+		JComboBox selectBox = new JComboBox();
+		selectBox.setBounds(143, 346, 140, 20);
+		selectBox.setBackground(Color.WHITE);
+		selectBox.setBorder(null);
 
 		// nbre Piece Field
 		JTextField nbrePieceField = new JTextField();
@@ -128,36 +138,13 @@ public class MenuCatalogue extends JPanel{
 				
 		infosUnites = new JTextField [] {numUniteField, typeUnitesField, adresseField, anneeField, superficieField, nbrePieceField, conditionField, dispoField, proprioField};
 		
-		// bouton liste des baux
-		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Unités");
-		MainWindow.liste.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == MainWindow.liste )
-					MainWindow.listeUnite = new MenuListeUnites();
-					MainWindow.ouvrePanel(MainWindow.listeUnite);
-			}
-		});
-		
-		// action du bouton créer
-		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
-		MainWindow.creer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-				if (e.getSource() == MainWindow.creer)
-					Unites.CreerUnites(infosUnites);
-					
-			}
-		});
-		
 		// action bouton modifier
 		MainWindow.modifier = Fonctions.bouttonModifier(MainWindow.modifier);
 		MainWindow.modifier.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.modifier)
-				MainWindow.modifierUnites = new MenuModifierUnites();
-				MainWindow.ouvrePanel(MainWindow.modifierUnites);
+				Unites.ModifierInfosUnites(selectBox, infosUnites);
 				
 			}
 		});
@@ -168,8 +155,16 @@ public class MenuCatalogue extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == MainWindow.annuler)
-				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal);
+				MainWindow.catalogue = new MenuCatalogue();
+				MainWindow.ouvrePanel(MainWindow.catalogue);
+			}
+		});
+		
+		selectBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { 
+				if (e.getSource() == selectBox)
+					Unites.AfficherInfosUnites(selectBox, infosUnites);
 			}
 		});
 
@@ -191,10 +186,11 @@ public class MenuCatalogue extends JPanel{
 		add(dispoLbl);
 		add(proprioField);
 		add(proprioLbl);
+		add(selectLbl);
+		add(selectBox);
 		
-		add(MainWindow.liste);
+		add(Unites.RemplirSelection(selectBox));
 		add(MainWindow.modifier);
-		add(MainWindow.creer); 
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "GESTION DES UNITÉS"));

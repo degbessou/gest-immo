@@ -40,12 +40,15 @@ public class MenuPaiement extends JPanel {
 		choixBailLbl.setBounds(393, 111, 126, 17); // dimension
 		choixBailLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
 		
+		// année label
+		JLabel anneeLbl = new JLabel("ANNÉE");
+		anneeLbl.setBounds(393, 158, 126, 17); // dimension
+		anneeLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+		
 		// loyer payé label
 		JLabel loyerPayeLbl = new JLabel("LOYER PAYÉ");
-		loyerPayeLbl.setBounds(393, 158, 126, 17); // dimension
+		loyerPayeLbl.setBounds(393, 206, 126, 17); // dimension
 		loyerPayeLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-		
-		
 		
 		// locataire box
 		JComboBox LocataireBox = new JComboBox();
@@ -72,24 +75,27 @@ public class MenuPaiement extends JPanel {
 		choixBailBox.setBackground(Color.WHITE);
 		choixBailBox.setBorder(null);
 		
+		// année field
+		JComboBox anneeField = new JComboBox(); 
+		anneeField.setBounds(550, 158, 140, 20);
+		anneeField.setBackground(Color.WHITE);
+		anneeField.setBorder(null);
+		
 		// loyer payé field
 		JTextField loyerPayeField = new JTextField(); 
-		loyerPayeField.setBounds(550, 158, 140, 20);
+		loyerPayeField.setBounds(550, 205, 140, 20);
 		loyerPayeField.setBackground(Color.WHITE);
 		loyerPayeField.setBorder(null);
 		
-
-//		// select car button action
-//		choixVoiture.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-//				if (e.getSource() == choixVoiture)
-//					MainWindow.catalogue = new Catalogue();
-//				MainWindow.ouvrePanel(MainWindow.catalogue);
-//			}
-//		});
-//		
-
+		// action du bouton créer
+		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
+		MainWindow.creer.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
+				if (e.getSource() == MainWindow.creer)
+					Paiement.enregistrementPaiement(LocataireBox, choixBailBox, moisBox, anneeField, loyerPayeField);;
+			}
+		});
 
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
@@ -109,6 +115,17 @@ public class MenuPaiement extends JPanel {
 					Paiement.remplirSelectionBail(LocataireBox, choixBailBox);
 			}
 		});
+		
+		// bouton liste des baux
+		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Historique De Paiement");
+		MainWindow.liste.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == MainWindow.liste )
+					MainWindow.hPaiement = new MenuHistoriquePaiement();
+					MainWindow.ouvrePanel(MainWindow.hPaiement);
+			}
+		});
 
 		add(loyerPayeField);
 		add(loyerPayeLbl);
@@ -120,10 +137,14 @@ public class MenuPaiement extends JPanel {
 		add(moisLbl);
 		add(soldeField);
 		add(soldeLbl);
-		add(Paiement.remplirSelectionLocataire(LocataireBox));
-		add(Paiement.remplirSelectionPeriode(moisBox));
+		add(anneeField);
+		add(anneeLbl);
 		
-		add(Fonctions.bouttonCréer(MainWindow.creer)); // à modifier une fois action du bouton réaliser
+		add(Paiement.remplirSelectionLocataire(LocataireBox));
+		add(Paiement.remplirSelectionMois(moisBox));
+		add(Paiement.remplirSelectionAnnee(anneeField));
+		add(MainWindow.liste);
+		add(MainWindow.creer); 
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "PAIEMENT"));

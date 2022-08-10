@@ -4,26 +4,23 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import outils.Fonctions;
-import outils.Json;
 import system.Employe;
 import system.Locataire;
 
-public class MenuInscriptionLocataire extends JPanel {
+public class MenuModifierLocataire extends JPanel {
 	public static JTextField [] infosLocataire;
-	public MenuInscriptionLocataire() {
-		fenetreMenuInscriptionLocataire();
+	public MenuModifierLocataire () {
+		fenetreModifierLocataire ();
 	}
 	
-	public void fenetreMenuInscriptionLocataire() {
+	public void fenetreModifierLocataire() {
 		setLayout(null);
-
+		
 		// nom locataire label
 		JLabel nomLocataireLbl = new JLabel("NOM");
 		nomLocataireLbl.setBounds(30, 112, 69, 17); // dimension
@@ -43,29 +40,27 @@ public class MenuInscriptionLocataire extends JPanel {
 		JLabel telLbl = new JLabel("TÉLÉPHONE");
 		telLbl.setBounds(30, 253, 100, 17); // dimension
 		telLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-		
-		
+
 		// type locataire label
 		JLabel typeLocataireLbl = new JLabel("TYPE LOCATAIRE");
 		typeLocataireLbl.setBounds(393, 112, 126, 17); // dimension
 		typeLocataireLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-		
+
 		// type unités label
 		JLabel typeUnitesLbl = new JLabel("TYPE UNITÉS");
 		typeUnitesLbl.setBounds(393, 159, 126, 17); // dimension
 		typeUnitesLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-		
+
 		// cote de crédit label
 		JLabel coteCreditLbl = new JLabel("COTE DE CRÉDIT");
 		coteCreditLbl.setBounds(393, 206, 126, 17); // dimension
 		coteCreditLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-		
-//		// sélection
-//		JLabel selectLbl = new JLabel("SÉLECTION");
-//		selectLbl.setBounds(30, 347, 88, 17); // dimension
-//		selectLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
-		
-		
+
+		// sélection
+		JLabel selectLbl = new JLabel("SÉLECTION");
+		selectLbl.setBounds(30, 347, 88, 17); // dimension
+		selectLbl.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13)); // font n height
+
 		// nom locataire box
 		JTextField nomLocataireField = new JTextField();
 		nomLocataireField.setBounds(143, 111, 140, 20);
@@ -89,80 +84,67 @@ public class MenuInscriptionLocataire extends JPanel {
 		telField.setBounds(143, 252, 140, 20);
 		telField.setBackground(Color.WHITE);
 		telField.setBorder(null);
-		
 
 		// type locataire box
 		JTextField typeLocataireField = new JTextField();
 		typeLocataireField.setBounds(550, 111, 140, 20);
 		typeLocataireField.setBackground(Color.WHITE);
 		typeLocataireField.setBorder(null);
-		
+
 		// loyer field
-		JTextField typeUnitesField = new JTextField(); 
+		JTextField typeUnitesField = new JTextField();
 		typeUnitesField.setBounds(550, 158, 140, 20);
 		typeUnitesField.setBackground(Color.WHITE);
 		typeUnitesField.setBorder(null);
-		
+
 		// cote de crédit field
 		JTextField coteCreditField = new JTextField();
 		coteCreditField.setBounds(550, 205, 140, 20);
 		coteCreditField.setBackground(Color.WHITE);
 		coteCreditField.setBorder(null);
-		
-//		// sélection box
-//		JComboBox selectBox = new JComboBox();
-//		selectBox.setBounds(143, 346, 140, 20);
-//		selectBox.setBackground(Color.WHITE);
-//		selectBox.setBorder(null);
-		
-		
-		
-		infosLocataire = new JTextField [] {nomLocataireField, prenomField, adresseField, telField, typeLocataireField, typeUnitesField, coteCreditField};
-		
-		// action du bouton liste des Locataires
-		MainWindow.liste = Fonctions.bouttonListe(MainWindow.liste, "Liste Des Locataires");
-		MainWindow.liste.addActionListener(new ActionListener() {
+
+		// sélection box
+		JComboBox selectBox = new JComboBox();
+		selectBox.setBounds(143, 346, 140, 20);
+		selectBox.setBackground(Color.WHITE);
+		selectBox.setBorder(null);
+
+		infosLocataire = new JTextField[] { nomLocataireField, prenomField, adresseField, telField, typeLocataireField,
+				typeUnitesField, coteCreditField };
+
+		// action de la selection d'un élément du box
+		selectBox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == MainWindow.liste )
-					MainWindow.listeLocataire = new MenuListeLocataire();
-					MainWindow.ouvrePanel(MainWindow.listeLocataire); // ouvre le menu liste des locataires
+				if (e.getSource() == selectBox)
+					Locataire.afficherInfosLocataire(selectBox, infosLocataire); // affiche les informations de
+																					// l'élément sélectionné
 			}
 		});
 
-		// action du bouton créer
-		MainWindow.creer = Fonctions.bouttonCréer(MainWindow.creer);
-		MainWindow.creer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-				if (e.getSource() == MainWindow.creer)
-					Locataire.InscrireClient(infosLocataire); // ajout un client dans le fichier json
-			}
-		});
-		
 		// action bouton modifier
 		MainWindow.modifier = Fonctions.bouttonModifier(MainWindow.modifier);
 		MainWindow.modifier.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == MainWindow.modifier)
-				MainWindow.modifierLocataire = new MenuModifierLocataire();
-				MainWindow.ouvrePanel(MainWindow.modifierLocataire); 
-				
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == MainWindow.modifier)
+					Locataire.modifierInfosLocataire(selectBox, infosLocataire); // modifie les données de l'élément
+																					// sélectionné
+
 			}
 		});
 
 		// bouton annuler action
 		MainWindow.annuler = Fonctions.bouttonAnnuler(MainWindow.annuler);
 		MainWindow.annuler.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == MainWindow.annuler)
-				MainWindow.menuPrincipal = new MenuPrincipal();
-				MainWindow.ouvrePanel(MainWindow.menuPrincipal); // retour au menu principal
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == MainWindow.annuler)
+					MainWindow.inscription = new MenuInscriptionLocataire(); // retour au menu inscrition
+					MainWindow.ouvrePanel(MainWindow.inscription);
 			}
 		});
-		
+
 		// ajout des différents composants du menu
 		add(nomLocataireLbl);
 		add(prenomLocataireLbl);
@@ -178,16 +160,20 @@ public class MenuInscriptionLocataire extends JPanel {
 		add(adresseField);
 		add(prenomField);
 		add(nomLocataireField);
-		
-		add(MainWindow.liste);
-		add(MainWindow.modifier); 
-		add(MainWindow.creer); 
+		add(selectBox);
+		add(selectLbl);
+
+		add(Locataire.remplirSelection(selectBox));
+		add(MainWindow.modifier);
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
-		add(Fonctions.titre(MainWindow.titre, "INSCRIPTION DU LOCATAIRE"));
+		add(Fonctions.titre(MainWindow.titre, "MODIFICATION DU LOCATAIRE"));
 		add(Fonctions.signature(MainWindow.copyright));
 		add(Fonctions.tableaudebordPanel(MainWindow.dash));
-		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye, Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
+		add(Fonctions.labelNomEmploye(MainWindow.identifiantEmploye,
+				Employe.getNomEmployer(MenuConnexion.nomUtilisateur)));
+		
+		
 	}
 
 }

@@ -1,8 +1,13 @@
 package outils;
 
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Vector;
+
 import javax.swing.*;
 import gui.MainWindow;
+import system.Bail;
 
 public class Fonctions {
 	
@@ -102,6 +107,44 @@ public class Fonctions {
 		btn.setBorder(null);
 		return btn;
 	}
+	
+	/**
+	 * Convertir une date en string
+	 * @param date
+	 * @return
+	 */
+	public static String DateEnString (LocalDate date ) {
+		DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return date.format(formatDate);
+	}
+	
+	
+	
+	
+	/*
+	 * Cette methode permet de convertir une date au format jj/mm/aaaa en LocalDate
+	 * @param date Date a convertir en localDate. Cette date doit etre au format dd/mm/aaaa
+	 * @return LocalDate
+	 */
+	public static LocalDate stringEnDate (String date ) {
+		DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return LocalDate.parse(date, formatDate);
+	}
+	
+	public static LocalDate dateRef (String dateFin) {
+		return LocalDate.now().minusMonths(-6);
+	}
+	
+	
+	
+//	public static void AfficherListe(JTable tablo, Vector<Vector<Object>>  maliste, Vector<String> entete) {
+//		tablo.add(maliste, entete);
+//		
+//	}
+	
+	
+	
+	
 }
 //	public static JButton boutton (JButton btn) {
 //		// login button

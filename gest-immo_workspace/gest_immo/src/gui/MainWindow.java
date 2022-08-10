@@ -15,7 +15,14 @@ public class MainWindow {
 	protected static MenuInscriptionLocataire inscription;
 	protected static MenuCatalogue catalogue;
 	protected static MenuListeUnites listeUnite;
+	protected static MenuHistoriquePaiement hPaiement;
 	protected static MenuPaiement paiement;
+	protected static MenuListePR listePR;
+	protected static MenuListeFV listeFV;
+	protected static MenuListeMBAM listeMBAM;
+	protected static MenuModifierLocataire modifierLocataire;
+	protected static MenuModifierBail modifierBail;
+	protected static MenuModifierUnites modifierUnites;
 	protected static JPanel dash;
 
 	protected static JButton quitter;

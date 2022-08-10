@@ -10,11 +10,11 @@ import javax.swing.table.DefaultTableModel;
 
 import outils.Fonctions;
 import outils.Json;
+import system.Bail;
 import system.Employe;
 import system.Locataire;
 
 public class MenuListeLocataire extends JPanel{
-	JScrollPane tableListeLocataire;
 	public MenuListeLocataire () {
 		fenetreMenuListeLocataire ();
 	}
@@ -34,9 +34,10 @@ public class MenuListeLocataire extends JPanel{
 		affichageBox.setBackground(Color.WHITE);
 		affichageBox.setBackground(null);
 		
-		// tableau d'affichage de la liste des locataires
-		tableListeLocataire = new JScrollPane(Locataire.afficherListeLocataire());
-		tableListeLocataire.setBounds(30, 145, 660, 227);
+		
+		JTable tableListeLocataire = new JTable(Locataire.afficherListeLocataire(), Locataire.Colonne());
+		JScrollPane ListeLocataire = new JScrollPane(tableListeLocataire);
+		ListeLocataire.setBounds(15, 145, 680, 227);
 		
 
 		// bouton annuler action
@@ -50,22 +51,11 @@ public class MenuListeLocataire extends JPanel{
 			}
 		});
 		
-//		affichageBox.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) { // ajouter la sauvegarde dans la base de donnée
-//				if (e.getSource() == affichageBox)
-//					//
-//					tableListeLocataire = new JScrollPane(Locataire.afficherListeLocataireNbreAffichage(affichageBox));
-//					tableListeLocataire.setBounds(30, 145, 660, 227);
-//					add(tableListeLocataire);
-//					
-//			}
-//		});
 
 		add(affichageBox);
 		add(affichageLbl);
 		add(Json.remplirFiltreAffichage(affichageBox));
-		add(tableListeLocataire);
+		add(ListeLocataire);
 		add(MainWindow.annuler);
 		add(MainWindow.quitter);
 		add(Fonctions.titre(MainWindow.titre, "LISTE DES LOCATAIRES"));

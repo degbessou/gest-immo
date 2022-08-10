@@ -33,9 +33,10 @@ public class Unites {
 	private static String prixStationnementMensuel = "100";
 	
     /**
-     * méthode qui récupère les informations du locataire 
+     * méthode qui récupère les informations des unités 
      * et les sauvegarde dans le fichier json.
      */
+	@SuppressWarnings("unchecked")
 	public  static void CreerUnites (JTextField [] text) {
 		String[] coord = new String[12];
 		JSONObject obj = new JSONObject();
@@ -54,20 +55,17 @@ public class Unites {
 	        
 	    }
 	    
-	    
 	    for (int j = 0; j < coord.length; j++) {
-	    	if (coord [j] == "" || coord [j] == null) {
-				break;
-			} else {
-				obj.put(infosUnités[j], coord[j]);
-			}
+	    	obj.put(infosUnités[j], coord[j]);
 		}
 	    
-	    if (!obj.isEmpty()) {
-	    	Json.EcrireData(obj, Json.path(getChemin()));
-	    	JOptionPane.showMessageDialog(null, "<html>Le bail de "+obj.get("idUnites")+" a été bien enregistré"); 
-		} else {
-			Json.SupprimerData(obj, Json.path(getChemin()));	
+	    if (obj.containsValue(null)) {
+	    	Json.SupprimerData(obj, Json.path(getChemin()));	// on supprime l'objet json
+		} else if (obj.isEmpty()){
+			Json.SupprimerData(obj, Json.path(getChemin()));	// on supprime l'objet json
+		}else {
+			Json.EcrireData(obj, Json.path(getChemin())); // si l'objet n'est pas vide on l'enregistre dans le fichier json
+	    	JOptionPane.showMessageDialog(null, "L'unité "+obj.get("idUnites")+" a été bien enregistré"); // message d'enregistrement
 		}
 	    
 
@@ -82,6 +80,7 @@ public class Unites {
      * méthode qui parcours la liste des unités
      * et remplie la liste déroulante des noms des détenteurs de baux 
      */
+	@SuppressWarnings("unchecked")
 	public static Component RemplirSelection (JComboBox box) {
 		JSONArray listeUnites = Json.LireData(Json.path(getChemin()));
 		for (int i = 0; i < listeUnites.size(); i++) {
@@ -135,15 +134,13 @@ public class Unites {
 				Json.SupprimerData(object, Json.path(getChemin())); // supprime les données de l'unité.
 			}
 		}
-		//System.out.println(listeLocataire);
 		CreerUnites(text); //recrée l'unité choisi avec les nouvelle données saisies.
-		JOptionPane.showMessageDialog(null, "<html>L'unité "+id+" a été bien modifiée"); 
 	}
 	
 	/**
-	 * méthode qui affiche la liste des baux dans une table
+	 * méthode qui affiche la liste des unités dans une table
 	 */
-	public static Component AfficherListeUnites() {
+	public static Vector<Vector<String>> AfficherListeUnites() {
 		JSONArray listeUnites = Json.LireData(Json.path(getChemin()));
 		Vector<Vector<String>> dataList = new Vector<>();
 		JSONObject object = new JSONObject();
@@ -170,7 +167,10 @@ public class Unites {
 			dataList.add(data); // ajout des lignes à la liste qui définie le tableau
 
 		}
-
+		return dataList;
+	}
+	
+	public static Vector<String> Colonne () {
 		Vector<String> nomColonne = new Vector<>(); // liste qui contient le nom de chaque colonne
 
 		nomColonne.add(("Id Unité"));
@@ -185,9 +185,8 @@ public class Unites {
 		nomColonne.add(("Loyer Mensuel"));
 		nomColonne.add(("Prix Remisage"));
 		nomColonne.add(("Prix Stationnement"));
-
-		JTable table = new JTable(dataList, nomColonne); // table à afficher
-		return table;
+		
+		return nomColonne;
 	}
 
 	public static String getChemin() {
