@@ -91,19 +91,6 @@
 		"locataire": "Thani"
 	},
 	{
-		"idBail": "23",
-		"remisage": "oui",
-		"loyerBase": "1800",
-		"dateSortie": "01/08/2023",
-		"typeUnites": "residentiel",
-		"revouvelabiliter": "oui",
-		"idUnites": "103",
-		"dateEntree": "01/08/2022",
-		"stationnement": "oui",
-		"idAssurance": "jj64jd",
-		"locataire": "Koudema"
-	},
-	{
 		"idBail": "8",
 		"remisage": "oui",
 		"loyerBase": "1200",
@@ -115,18 +102,5 @@
 		"stationnement": "non",
 		"idAssurance": "64x8t9",
 		"locataire": "Ibraima"
-	},
-	{
-		"idBail": "53",
-		"remisage": "oui",
-		"loyerBase": "1800",
-		"dateSortie": "01/08/2023",
-		"typeUnites": "residentiel",
-		"revouvelabiliter": "oui",
-		"idUnites": "103",
-		"dateEntree": "01/08/2022",
-		"stationnement": "oui",
-		"idAssurance": "jj64jd",
-		"locataire": "Koudema"
 	}
 ]

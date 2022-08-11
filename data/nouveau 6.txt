@@ -1,0 +1,33 @@
+   "nom": "eric ",
+   "prenom": "azamane",
+   "nomUtilisateur": "azae01",
+   "motDePasse": "azamER2022"
+
+
+
+
+							test historique de paiement
+
+idBail	locataire	mois	annee	montantPayer
+101		Marima		août	2022	2700
+203		Thani		août	2022	900
+
+									test bail
+
+idUnites	typeUnites	dateEntree	idAssurance	remisage	locataire	loyerBase	dateSortie	revouvelabiliter	stationnement
+103			residentiel		01/08/2022	jj64jd		oui			Koudema		1800		01/08/2023	non					oui
+
+									test unites
+
+idUnites	typeUnites	adresse					anneeConstruction	superficie	nombrePieces	condition	disponibiliter	proprietaire	loyerMensuel	prixRemisageMensuel	prixStationnementMensuel
+114			residentiel	125 Sainte-Thérèse St.	2014				720			4				louable		libre			Isiah Kirk		1800			75					100
+208			commercial	7 Beech St.				1999				560			2				pas louable	occuper			Bentley Cain	1200			75					100
+
+									test locataire
+
+nom			prenom		adresse				telephone		typeLocataire	typeUnites	coteCredit
+						
+Koudema		Amouda		200 Rue Du Louvre	(454)698-1237	actuel			residentiel	789
+Henry		Falonne		99 rue Tel			(598)666-7895	potentiel		commercial	687
+
+
